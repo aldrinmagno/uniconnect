@@ -1,0 +1,6 @@
+vendor/
+.env
+resources/cache
+resources/logs
+public/assets/vendor
+public/assets/
