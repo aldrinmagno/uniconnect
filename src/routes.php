@@ -2,6 +2,6 @@
 
 // Routes
 $app->group('/', function () {
-    $this->get('', 'Src\Controller\UserController:loginView')
-        ->setName('loginPageUser');
+    $this->get('', 'Src\Controller\HomeController:index')
+        ->setName('home');
 });
