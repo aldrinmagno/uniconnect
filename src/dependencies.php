@@ -69,7 +69,7 @@ $container['view'] = function ($c) {
     // Add extensions
     $view->addExtension(new Slim\Views\TwigExtension($c->get('router'), $c->get('request')->getUri()));
     $view->addExtension(new Twig_Extension_Debug());
-    $view->addExtension(new Src\View\CsrfExtension($c->get('csrf')));
+    //$view->addExtension(new Src\View\CsrfExtension($c->get('csrf')));
 
     return $view;
 };

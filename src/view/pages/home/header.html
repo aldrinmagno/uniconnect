@@ -1,0 +1,75 @@
+<section class="hero is-dark">
+    <div class="container is-fluid">
+        <header class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <small class="navbar-item">Connect with us: </small>
+                    <a class="navbar-item">
+                        <i class="fab fa-facebook-messenger"></i>
+                    </a>
+                    <a class="navbar-item">
+                            <i class="fab fa-skype"></i>
+                    </a>
+                    <a class="navbar-item">
+                            <i class="fab fa-weixin"></i>
+                    </a>
+                </div>
+                <div id="navbarMenuHeroC" class="navbar-menu">
+                    <div class="navbar-end">
+                        <a class="navbar-item">
+                            <small>Login</small>
+                        </a>
+                        <a class="navbar-item">
+                            <small>Register</small>
+                        </a>
+                        <span class="navbar-item">
+                            <div class="control has-icons-left">
+                                <div class="select is-small">
+                                    <select>
+                                        <option selected>AU</option>
+                                        <option>PH</option>
+                                        <option>IN</option>
+                                    </select>
+                                </div>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-globe"></i>
+                                </span>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+</section>
+
+<section class="is-light main-nav">
+    <div class="container">
+        <nav class="level">
+            <p class="level-item has-text-centered">
+                <a href="{{ path_for('home') }}" class="link is-info">Home</a>
+            </p>
+            <p class="level-item has-text-centered">
+                <a href="{{ path_for('regularSearch') }}" class="link is-info">Universities</a>
+            </p>
+            <p class="level-item has-text-centered"></p>
+            <div class="level-item has-text-centered">
+                <div>
+                    <a href="{{ path_for('home') }}">
+                        <p class="heading">UNI CONNECT</p>
+                        <img src="https://placeholdit.co//i/100x40?bg=111111?text=UniConnectLogo">
+                    </a>
+                </div>
+            </div>
+            <p class="level-item has-text-centered">
+                <a href="{{ path_for('aboutus') }}" class="link is-info">About us</a>
+            </p>
+            <p class="level-item has-text-centered">
+                <a href="{{ path_for('services') }}" class="link is-info">Services</a>
+            </p>
+            <p class="level-item has-text-centered">
+                <a href="{{ path_for('faq') }}" class="link is-info">FAQ</a>
+            </p>
+        </nav>
+    </div>
+</section>

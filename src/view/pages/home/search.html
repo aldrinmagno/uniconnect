@@ -1,0 +1,63 @@
+{% extends "/templates/search.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block search %}
+<section class="hero is-light" id="banner-page">
+        <div class="container">
+                <div class="columns">
+                    <div class="column">
+                  <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                      <li><a href="{{ path_for('home') }}">Home</a></li>
+                      <li class="is-active"><a href="#" aria-current="page">University Search</a></li>
+                    </ul>
+                  </nav>
+                </div>
+                </div>
+              </div>
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns">
+                    <div class="column has-text-centered">
+                        <h1 class="title">Uni Connect</h1>
+                        <h2 class="subtitle">Helping aspiring international students <br> to get to the <strong>right university</strong> <br> for them.</h2>
+                    </div>
+                </div>
+                <div class="columns">
+                        <div class="column">
+                            </div>
+                    <div class="column is-one-third">
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input class="input is-medium" type="text" placeholder="University">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-one-third">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <div class="control has-icons-left">
+                                    <input class="input is-medium" type="text" placeholder="Location">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-map"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="control">
+                                <button type="submit" class="button is-medium">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+    </section>
+{% endblock %}

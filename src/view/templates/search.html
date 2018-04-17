@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %} - Uni Connect</title>
+        {% include 'common/css.html' %}
+    </head>
+    <body>
+        {% include 'pages/home/header.html' %}
+        {% block search %}{% endblock %}
+        <section class="section">
+            {% include 'common/footer.html' %}
+        </section>
+        {% include 'common/js.html' %}
+    </body>
+</html>
