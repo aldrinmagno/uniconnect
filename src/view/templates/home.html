@@ -2,20 +2,41 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}{% endblock %} - Uni Connect</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}{% endblock %} - UniConnect</title>
         {% include 'common/css.html' %}
     </head>
     <body>
-        {% include 'pages/home/header.html' %}
-        {% block hero %}{% endblock %}
-        {% block section1 %}{% endblock %}
-        {% block section2 %}{% endblock %}
-        {% block section3 %}{% endblock %}
-        {% block section4 %}{% endblock %}
-        <section class="section">
+        <section>
+            <header>
+                {% include 'pages/home/header.html' %}
+            </header>
+        </section>
+        
+        <section class="hero-section">
+                <div class="container">
+                        {% block breadcrumbs %}{% endblock %}
+                    </div>
+            {% block hero %}{% endblock %}
+        </section>
+        <section>
+            {% block section1 %}{% endblock %}
+        </section>
+        <section class="international-students">
+            {% block section2 %}{% endblock %}
+        </section>
+        <section class="testimonies">
+            {% block section3 %}{% endblock %}
+        </section>
+        <section class="services">
+            {% block section4 %}{% endblock %}
+        </section>
+        <section>
             {% include 'common/footer.html' %}
         </section>
+        <div id="load"></div>
+        
+        {% include 'pages/home/mapjs.html' %}
         {% include 'common/js.html' %}
     </body>
 </html>

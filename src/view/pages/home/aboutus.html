@@ -2,199 +2,87 @@
 
 {% block title %} {{ title }} {% endblock %}
 
+{% block breadcrumbs %}
+{% include 'common/breadcrumbs.html' %}
+{% endblock %}
+
 {% block hero %}
-<section class="hero is-light" id="banner-page">
-        <div class="container">
-                <div class="columns">
-                    <div class="column">
-                  <nav class="breadcrumb" aria-label="breadcrumbs">
-                    <ul>
-                      <li><a href="{{ path_for('home') }}">Home</a></li>
-                      <li class="is-active"><a href="#" aria-current="page">About Us</a></li>
-                    </ul>
-                  </nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+                <h2>About UniConnect</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur sequi quod, quia id facere placeat, animi veniam, maiores et culpa dolores pariatur distinctio in hic delectus suscipit? Perspiciatis, minima illo?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ipsum et reiciendis eligendi dolores minima modi sint quasi commodi, similique dignissimos neque praesentium officia odio id atque harum dolor ipsam?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aperiam fuga commodi adipisci rem fugit possimus fugiat quas molestias aspernatur perspiciatis pariatur provident expedita rerum magnam laboriosam repellendus, nesciunt repudiandae.</p>
+        </div>
+    </div>
+</div>  
+{% endblock %}
+
+{% block section1 %}
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-md-7">
+            <img src="https://bulma.io/images/placeholders/1280x960.png" class="img-fluid" alt="Placeholder image">
+        </div>
+        <div class="col">
+            <h1 class="h5">
+               Why UniConnect
+            </h1>
+            <h2 class="h6">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse, ipsum est iusto dolorum magnam officia soluta odio inventore deleniti laboriosam dolores commodi eveniet laudantium tempore? Blanditiis eligendi velit corporis in.
+            </h2>
+            <ul>
+                <li>24 Hours Support</li>
+                <li>24 Hours Support</li>
+                <li>24 Hours Support</li>
+                <li>24 Hours Support</li>
+                <li>24 Hours Support</li>
+                <li>24 Hours Support</li>
+            </ul>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam minima similique, minus itaque impedit sit et natus velit aliquam. Ratione ea rem qui porro suscipit ipsam quisquam ducimus magni eaque.
+            </p>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-block"><i class="fab fa-facebook-messenger"></i></button>
                 </div>
-                </div>
-              </div>
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns">
-                <div class="column">
-                    <h3 class="title">What is Uni Connect?</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur sequi quod, quia id facere placeat, animi veniam, maiores et culpa dolores pariatur distinctio in hic delectus suscipit? Perspiciatis, minima illo?</p>
-                    <br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ipsum et reiciendis eligendi dolores minima modi sint quasi commodi, similique dignissimos neque praesentium officia odio id atque harum dolor ipsam?</p>
-                    <br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aperiam fuga commodi adipisci rem fugit possimus fugiat quas molestias aspernatur perspiciatis pariatur provident expedita rerum magnam laboriosam repellendus, nesciunt repudiandae.</p>
+                <div class="col">
+                    <button class="btn btn-block"><i class="fab fa-weixin"></i></button>
                 </div>
             </div>
         </div>
     </div>
-</section>    
+</div>
 {% endblock %}
 
 {% block section2 %}
-<section class="hero">
-        <div class="hero-body">
-                
-            <div class="container">
-                <div class="columns">
-                    <div class="column">
-                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    </div>
-                    <div class="column has-text-left is-half">
-                        <h1 class="title">
-                            Why Uni Connect
-                        </h1>
-                        <h2 class="subtitle">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse, ipsum est iusto dolorum magnam officia soluta odio inventore deleniti laboriosam dolores commodi eveniet laudantium tempore? Blanditiis eligendi velit corporis in.
-                        </h2>
-                        <ul>
-                            <li>24 Hours Support</li>
-                            <li>24 Hours Support</li>
-                            <li>24 Hours Support</li>
-                            <li>24 Hours Support</li>
-                            <li>24 Hours Support</li>
-                            <li>24 Hours Support</li>
-                        </ul>
-                        <br>
-                        <div class="columns">
-                            <div class="column">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam minima similique, minus itaque impedit sit et natus velit aliquam. Ratione ea rem qui porro suscipit ipsam quisquam ducimus magni eaque.
-                            </div>
-                        </div>
-                        <div class="columns">
-                            <div class="column">
-                                <button class="button" style="width: 100%;"><i class="fab fa-facebook-messenger"></i></button>
-                            </div>
-                            <div class="column">
-                                <button class="button" style="width: 100%;"><i class="fab fa-skype"></i></button>
-                            </div>
-                            <div class="column">
-                                <button class="button" style="width: 100%;"><i class="fab fa-weixin"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3 class="title">UniConnect's vision for you</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur sequi quod, quia id facere placeat, animi veniam, maiores et culpa dolores pariatur distinctio in hic delectus suscipit? Perspiciatis, minima illo?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ipsum et reiciendis eligendi dolores minima modi sint quasi commodi, similique dignissimos neque praesentium officia odio id atque harum dolor ipsam?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aperiam fuga commodi adipisci rem fugit possimus fugiat quas molestias aspernatur perspiciatis pariatur provident expedita rerum magnam laboriosam repellendus, nesciunt repudiandae.</p>
         </div>
     </div>
-</section>
+</div>
 {% endblock %}
 
 {% block section3 %}
-<section class="hero is-light" id="banner-page">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns">
-                <div class="column">
-                    <h3 class="title">Uni Connect's vision for you</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur sequi quod, quia id facere placeat, animi veniam, maiores et culpa dolores pariatur distinctio in hic delectus suscipit? Perspiciatis, minima illo?</p>
-                    <br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ipsum et reiciendis eligendi dolores minima modi sint quasi commodi, similique dignissimos neque praesentium officia odio id atque harum dolor ipsam?</p>
-                    <br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aperiam fuga commodi adipisci rem fugit possimus fugiat quas molestias aspernatur perspiciatis pariatur provident expedita rerum magnam laboriosam repellendus, nesciunt repudiandae.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>    
-{% endblock %}
-
-{% block section4 %}
 <div class="container">
-        <br>
-        <h3 class="title">People behind Uni Connect</h3>
-        <div class="columns">
-            <div class="column">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-4">Jasvir Singh</p>
-                            </div>
-                        </div>
-                        <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@jasvirsingh</a>.
-                            <a href="#">#darwin</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-4">Vilma Verano</p>
-                            </div>
-                        </div>
-                        <div class="content">
-                            Lorem ipsum dolor sit tetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@vilmaverano</a>.
-                            <a href="#">#darwin</a>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-4">Irene Camacho</p>
-                            </div>
-                        </div>
-                        <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iacu. <a>@irenecamacho</a>.
-                            <a href="#">#darwin</a>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-4">Aldrin Magno</p>
-                            </div>
-                        </div>
-                        <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@aldrinmagno</a>.
-                            <a href="#">#darwin</a>
-                            <br>
-                        </div>
-                    </div>
-                </div>
+    <div class="card-group">
+        {% for creator in creators %}
+        <div class="card">
+            <img class="card-img-top" src="{{ creator.image }}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{ path_for('creator', {creator: 'aldrin-magno'}) }}">{{ creator.name }}</a></h5>
+                <p class="card-text">{{ creator.description }}</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
+        {% endfor %}
     </div>
-    <br>
+</div> 
 {% endblock %}

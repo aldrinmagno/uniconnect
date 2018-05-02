@@ -4,3 +4,5 @@ resources/cache
 resources/logs
 public/assets/vendor
 public/assets/
+public/css/
+public/node_modules/

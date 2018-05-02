@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %} - UniConnect</title>
+        {% include 'common/css.html' %}
+    </head>
+    <body>
+        <section>
+            {% block jumbotron %}{% endblock %}
+        </section>
+        <div id="load"></div>
+        {% include 'common/js.html' %}
+    </body>
+</html>

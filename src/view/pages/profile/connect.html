@@ -1,0 +1,59 @@
+{% extends "/templates/profile.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block topnav %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">   
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <span class="navbar-text">
+                Connect with us: 
+            </span>
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.facebook.com/UniConnect-431878487273437/"><i class="fab fa-facebook-messenger"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-weixin"></i></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+{% endblock %}
+
+{% block sidebar %}
+{% include "pages/profile/sidebar.html" %}
+{% endblock %}
+
+{% block maincontent %}
+<div class="container-fluid">
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Connect with other students.</h3>
+            <br>
+        </div>
+        <div class="col-md-12">
+            <div class="card-columns">
+            {% for testimony in testimonies %}
+                <div class="card">
+                {% if testimony.image %}
+                    <img class="card-img-top" src="{{ testimony.image }}" alt="Card image cap">
+                {% endif %}
+                {% if testimony.title %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ testimony.title }} <small>@unistudent 30min ageo</small></h5>
+                        <p class="card-text">{{ testimony.description|raw }}</p>
+                    </div>
+                {% endif %}
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+                
+    </div>
+</div>
+{% endblock %}

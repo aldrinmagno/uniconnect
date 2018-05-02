@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %} - UniConnect</title>
+        {% include 'common/css.html' %}
+    </head>
+    <body>
+        <header>
+            {% include 'pages/home/header.html' %}
+        </header>
+        
+        <section class="container-fluid">
+            <br>
+            <div class="row">           
+                <div class="col-md-3">
+                    {% include 'pages/directories/searchbar.html' %}
+                </div>
+                <div class="col-md-9">
+                    {% block breadcrumbs %}{% endblock %}
+                    {% block unilist %}{% endblock %}
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            {% include 'common/footer.html' %}
+
+            <div id="load"></div>
+        </section>
+        {% include 'common/js.html' %}
+    </body>
+</html>

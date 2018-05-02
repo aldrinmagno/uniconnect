@@ -131,6 +131,30 @@ $container['Src\Controller\HomeController'] = function ($c) {
 // -----------------------------------------------------------------------------
 // Model factories
 // -----------------------------------------------------------------------------
+$container['accomodation'] = function ($c) {
+    return new Src\Model\AccomodationModel($c);
+};
+$container['country'] = function ($c) {
+    return new Src\Model\CountryModel($c);
+};
+$container['degree'] = function ($c) {
+    return new Src\Model\DegreeModel($c);
+};
+$container['image'] = function ($c) {
+    return new Src\Model\ImagesModel($c);
+};
+$container['location'] = function ($c) {
+    return new Src\Model\LocationModel($c);
+};
+$container['requirement'] = function ($c) {
+    return new Src\Model\RequirementsModel($c);
+};
+$container['uni'] = function ($c) {
+    return new Src\Model\UniModel($c);
+};
 $container['users'] = function ($c) {
     return new Src\Model\UsersModel($c);
+};
+$container['useruni'] = function ($c) {
+    return new Src\Model\UserUniModel($c);
 };

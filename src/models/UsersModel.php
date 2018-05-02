@@ -92,34 +92,6 @@ class UsersModel
 		return $this->pdo->fetchAll($stm, $bind);
     }
 
-    // Locate all file with where
-    public function findAllByPage($where, $bind, $limit, $offset)
-    {
-        $select = [
-            'CONCAT(fldUserFName, " ", fldUserLName) AS Name',
-            'fldUserStatus',
-            'fldUserMobile',
-            'fldUserEmail',
-            'fldUserLandline',
-            'DATE_FORMAT(fldUserDOB, "%d/%m/%Y") AS fldUserDOB',
-            'DATE_FORMAT(fldUserCreated, "%d/%m/%Y") AS fldUserCreated',
-            'fldLastLogin',
-            'fldUserId',
-        ];
-
-        $this->select = $this->query_factory->newSelect();
-		$this->select
-			->cols($select)
-            ->limit($limit)
-            ->offset($offset)
-			->where($where)
-			->from($this->table);
-
-		$stm = $this->select->getStatement();
-
-		return $this->pdo->fetchAll($stm, $bind);
-    }
-
     // add new data
     public function insert($values = [])
     {
@@ -221,4 +193,233 @@ class UsersModel
         return $this->pdo->fetchOne($sth, $bind);
     }
 
+    public function topUni() 
+    {
+        return [
+            [
+                'name' => 'University of Oxford',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'name' => 'University of Cambridge',
+                'description' => "Lorem ccusamus deserunt excepturi asperiores dolorem praesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'name' => 'Harvard University',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temp asperiores dolorem praesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'name' => 'Stanford University',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temppturi asperiores dolorem praesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ]
+        ];
+    }
+
+    public function testimonies() 
+    {
+        return [
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Aldrin',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'title' => 'Jasvir',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit. consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Irene',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Vilma',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+            ],
+            [
+                'title' => 'Jasvir',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit. consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Vilma',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Aldrin',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'title' => 'Jasvir',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit. consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Irene',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Vilma',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+            ],
+            [
+                'title' => 'Jasvir',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit. consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Vilma',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+        ];
+    }
+
+    public function students() 
+    {
+        return [
+            [
+                'title' => 'Aldrin',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'title' => 'Jasvir',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit. consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'title' => 'Irene',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'title' => 'Vilma',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'title' => 'Jasvir',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit. consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'title' => 'Vilma',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'title' => 'Aldrin',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'title' => 'Jasvir',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit. consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'title' => 'Irene',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'title' => 'Vilma',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'title' => 'Jasvir',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit. consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'title' => 'Vilma',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+        ];
+    }
+
+    public function universities() 
+    {
+        return [
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Charlse Darwin University',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectutem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Oxford University',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'University of the Philippines',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Bataan Peninsula State University',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. tem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'University of Sydney',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Charlse Darwin University',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'MIT',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Hardvard',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Charlse Darwin University',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectutem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Oxford University',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'University of the Philippines',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Bataan Peninsula State University',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. tem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'University of Sydney',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Charlse Darwin University',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'MIT',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+            [
+                'image' => 'https://bulma.io/images/placeholders/1280x960.png',
+                'title' => 'Hardvard',
+                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
+            ],
+        ];
+    }
 }

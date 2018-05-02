@@ -1,0 +1,89 @@
+{% extends "/templates/profile.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block topnav %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">   
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <span class="navbar-text">
+                Connect with us: 
+            </span>
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.facebook.com/UniConnect-431878487273437/"><i class="fab fa-facebook-messenger"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-weixin"></i></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+{% endblock %}
+
+{% block sidebar %}
+{% include "pages/profile/sidebar.html" %}
+{% endblock %}
+
+{% block maincontent %}
+<div class="container-fluid">
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Congratulation! You are now closer in studying at your dream university.</h3>
+            <br>
+        </div>
+        <div class="col-md-6">
+            <div class="jumbotron">
+                <h4>University Name</h4>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum similique dolores maxime beatae temporibus, placeat quas odit, laudantium tempora sint error aperiam blanditiis cum hic nobis incidunt exercitationem laboriosam id.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae blanditiis, asperiores sunt adipisci reprehenderit quis explicabo minus eos eveniet accusamus eaque sequi ipsum pariatur animi facilis voluptatibus possimus vitae sed.
+                </p>
+                <a href="">read more</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>Country</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, ipsa quia! Officiis est maiores nisi, perferendis quisquam totam, quaerat dolorum mollitia rem, veniam dolorem placeat possimus? Nulla earum veritatis cum!</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed reprehenderit dicta suscipit ducimus quam consequatur modi cupiditate nisi atque ut nesciunt, eum a aliquam voluptate debitis exercitationem quia itaque perspiciatis.</p>
+            <a href="">read more</a>
+        </div>   
+        <div class="col-md-6">
+            <h4>Visa Requirements</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, ipsa quia! Officiis est maiores nisi, perferendis quisquam totam, quaerat dolorum mollitia rem, veniam dolorem placeat possimus? Nulla earum veritatis cum!</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed reprehenderit dicta suscipit ducimus quam consequatur modi cupiditate nisi atque ut nesciunt, eum a aliquam voluptate debitis exercitationem quia itaque perspiciatis.</p>
+            <a href="">read more</a>
+        </div>   
+        <div class="col-md-6">
+            <div class="jumbotron">
+                <h4>Pre University Activities</h4>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum similique dolores maxime beatae temporibus, placeat quas odit, laudantium tempora sint error aperiam blanditiis cum hic nobis incidunt exercitationem laboriosam id.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae blanditiis, asperiores sunt adipisci reprehenderit quis explicabo minus eos eveniet accusamus eaque sequi ipsum pariatur animi facilis voluptatibus possimus vitae sed.
+                </p>
+                <a href="">read more</a>
+            </div>
+        </div> 
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <h4>University Life</h4>
+                <p>
+                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum similique dolores maxime beatae temporibus, placeat quas odit, laudantium tempora sint error aperiam blanditiis cum hic nobis incidunt exercitationem laboriosam id.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae blanditiis, asperiores sunt adipisci reprehenderit quis explicabo minus eos eveniet accusamus eaque sequi ipsum pariatur animi facilis voluptatibus possimus vitae sed.
+                </p>
+                <a href="">read more</a>
+            </div>
+        </div> 
+    </div>
+</div>
+{% endblock %}

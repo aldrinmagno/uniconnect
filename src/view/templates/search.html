@@ -2,16 +2,29 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}{% endblock %} - Uni Connect</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}{% endblock %} - UniConnect</title>
         {% include 'common/css.html' %}
     </head>
     <body>
-        {% include 'pages/home/header.html' %}
-        {% block search %}{% endblock %}
-        <section class="section">
+        <section>
+            <header>
+                {% include 'pages/home/header.html' %}
+            </header>
+        </section>
+        <section>
+            <br>
+            {% block search %}{% endblock %}
+        </section>
+        <section class="testimonies">
+            {% block section3 %}{% endblock %}
+        </section>
+        <section>
             {% include 'common/footer.html' %}
         </section>
+        <div id="load"></div>
+        
+        {% include 'pages/home/mapjs.html' %}
         {% include 'common/js.html' %}
     </body>
 </html>

@@ -3,61 +3,54 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block search %}
-<section class="hero is-light" id="banner-page">
-        <div class="container">
-                <div class="columns">
-                    <div class="column">
-                  <nav class="breadcrumb" aria-label="breadcrumbs">
-                    <ul>
-                      <li><a href="{{ path_for('home') }}">Home</a></li>
-                      <li class="is-active"><a href="#" aria-current="page">University Search</a></li>
-                    </ul>
-                  </nav>
-                </div>
-                </div>
-              </div>
-        <div class="hero-body">
-            <div class="container">
-                <div class="columns">
-                    <div class="column has-text-centered">
-                        <h1 class="title">Uni Connect</h1>
-                        <h2 class="subtitle">Helping aspiring international students <br> to get to the <strong>right university</strong> <br> for them.</h2>
-                    </div>
-                </div>
-                <div class="columns">
-                        <div class="column">
-                            </div>
-                    <div class="column is-one-third">
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                <input class="input is-medium" type="text" placeholder="University">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-graduation-cap"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column is-one-third">
-                        <div class="field has-addons">
-                            <div class="control is-expanded">
-                                <div class="control has-icons-left">
-                                    <input class="input is-medium" type="text" placeholder="Location">
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-map"></i>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="control">
-                                <button type="submit" class="button is-medium">Search</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column">
-                        
-                    </div>
-                </div>
+<div class="container">
+  
+{% include 'common/breadcrumbs.html' %}
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2 class="h1">UniConnect</h2>
+            <h1 class="h5">Helping aspiring international students <br> to get to the <strong>right university</strong> <br> for them.</h1>
+            <br>
+        </div>
+    </div>
+    <form class="row needs-validation" novalidate>
+        <div class="col"></div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="formGroupExampleInput">Location</label>
+                <select class="form-control" id="location"></select>
             </div>
         </div>
-        <br><br>
-    </section>
+        <div class="col"></div>
+    </form>
+</div>
+{% endblock %}
+
+{% block section3 %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 "><br><br><br><br><br><br><br><br><br><br><hr></div>
+    <div class="col-md-12 text-center">
+      <h3 class="display-6">Testimonies from our students</h3>
+      <h5>See what other international student say about us</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card-columns">
+      {% for testimony in testimonies %}
+      <div class="card">
+        {% if testimony.image %}
+        <img class="card-img-top" src="{{ testimony.image }}" alt="Card image cap">
+        {% endif %}
+        {% if testimony.title %}
+        <div class="card-body">
+          <h5 class="card-title">{{ testimony.title }} <small>@unistudent 30min ageo</small></h5>
+          <p class="card-text">{{ testimony.description|raw }}</p>
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock %}

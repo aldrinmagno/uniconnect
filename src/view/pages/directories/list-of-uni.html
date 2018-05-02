@@ -1,0 +1,166 @@
+{% extends "/templates/list-of-uni.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block breadcrumbs %}
+{% include 'common/breadcrumbs.html' %}
+{% endblock %}
+
+{% block unilist %}
+<div class="card-columns">
+    {% for testimony in universities %}
+    <div class="card">        
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-9">         
+                    <a href="{{ path_for('university', {country:testimony.country, uni:testimony.slug}) }}">
+                        {{ testimony.title }}
+                    </a>
+                </div>
+                <div class="col text-right">
+                    <div data-toggle="tooltip" data-placement="top" title="Brief information">
+                        <a href="javascript:void(0)" data-toggle="modal" data-target=".bd-example-modal-lg">
+                            <i class="fas fa-info-circle"></i>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>                        
+            </div>                 
+        </div>
+        {% if testimony.image %}
+        <img class="card-img-top" src="{{ testimony.image }}" alt="{{ testimony.title }}">
+        {% else %}
+        <img class="card-img-top" src="https://bulma.io/images/placeholders/1280x960.png" alt="{{ testimony.title }}">     
+        {% endif %}
+
+        {% if testimony.title %}
+        <div class="card-body">
+            <p class="card-text">{{ testimony.description|raw }}</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">University Info</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Culture</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="map-tab" data-toggle="tab" href="#map" role="tab" aria-controls="map" aria-selected="false">Maps</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <br>
+                                <h3>University Name</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero velit, commodi repudiandae asperiores incidunt nisi similique fugit non corporis tempore eaque quia aliquid earum adipisci reiciendis modi eligendi repellat animi!</p>                
+                                <hr>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A distinctio deserunt maxime modi provident sequi quaerat, sit maiores, itaque sapiente, dicta dignissimos voluptate delectus corporis consequuntur eveniet enim voluptatem autem?
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione accusantium ex eos quae optio adipisci laboriosam maxime corporis non magni dicta, hic perspiciatis. Ipsa quibusdam eaque facere ea tenetur magnam.
+                                </p>
+                                <h4>Requirements</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quas modi. Alias porro, in deserunt, aliquid fugit consequuntur, tempore a perferendis eos repudiandae minus. Nobis, facere nostrum? Eum, consequatur tenetur.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quas modi. Alias porro, in deserunt, aliquid fugit consequuntur, tempore a perferendis eos repudiandae minus. Nobis, facere nostrum? Eum, consequatur tenetur.</p>
+                                <ul>
+                                    <li>lorem</li>
+                                    <li>lorem</li>
+                                    <li>lorem</li>
+                                    <li>lorem</li>
+                                    <li>lorem</li>
+                                </ul>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <br>
+                                <h3>University Culture</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero velit, commodi repudiandae asperiores incidunt nisi similique fugit non corporis tempore eaque quia aliquid earum adipisci reiciendis modi eligendi repellat animi!</p>                
+                                <hr>
+                                <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. A distinctio deserunt maxime modi provident sequi quaerat, sit maiores, itaque sapiente, dicta dignissimos voluptate delectus corporis consequuntur eveniet enim voluptatem autem?
+                                </p>
+                                <p>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione accusantium ex eos quae optio adipisci laboriosam maxime corporis non magni dicta, hic perspiciatis. Ipsa quibusdam eaque facere ea tenetur magnam.
+                                </p>
+                                <h4>People</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quas modi. Alias porro, in deserunt, aliquid fugit consequuntur, tempore a perferendis eos repudiandae minus. Nobis, facere nostrum? Eum, consequatur tenetur.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quas modi. Alias porro, in deserunt, aliquid fugit consequuntur, tempore a perferendis eos repudiandae minus. Nobis, facere nostrum? Eum, consequatur tenetur.</p>
+                                <ul>
+                                    <li>lorem</li>
+                                    <li>lorem</li>
+                                    <li>lorem</li>
+                                    <li>lorem</li>
+                                    <li>lorem</li>
+                                </ul>
+                                <hr>
+                                <h4>Educational system</h4>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quas modi. Alias porro, in deserunt, aliquid fugit consequuntur, tempore a perferendis eos repudiandae minus. Nobis, facere nostrum? Eum, consequatur tenetur.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quas modi. Alias porro, in deserunt, aliquid fugit consequuntur, tempore a perferendis eos repudiandae minus. Nobis, facere nostrum? Eum, consequatur tenetur.</p>
+                                <ul>
+                                    <li>lorem</li>
+                                    <li>lorem</li>
+                                    <li>lorem</li>
+                                    <li>lorem</li>
+                                    <li>lorem</li>
+                                </ul>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
+                        <iframe
+                        width="100%"
+                        height="400px"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDmt7M3IODiZMhhgN91xwmNGkbrascSPKg
+                          &q=Space+Needle,Seattle+WA" allowfullscreen>
+                      </iframe>
+                </div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="container">
+                        <br>
+                        <div class="card-columns">
+                            {% for creator in creators %}
+                            <div class="card">
+                                <img class="card-img-top" src="{{ creator.image }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ creator.name }}</h5>
+                                    <p class="card-text">{{ creator.description }}</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+              
+{% endblock %}

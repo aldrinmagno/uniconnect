@@ -2,101 +2,85 @@
 
 {% block title %} {{ title }} {% endblock %}
 
+{% block breadcrumbs %}
+{% include 'common/breadcrumbs.html' %}
+{% endblock %}
+
 {% block hero %}
-<section class="hero is-light" id="banner-page">
-        <div class="container">
-                <div class="columns">
-                    <div class="column">
-                  <nav class="breadcrumb" aria-label="breadcrumbs">
-                    <ul>
-                      <li><a href="{{ path_for('home') }}">Home</a></li>
-                      <li class="is-active"><a href="#" aria-current="page">Services</a></li>
-                    </ul>
-                  </nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+                <h2>What does Uni Connect has to offer?</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur sequi quod, quia id facere placeat, animi veniam, maiores et culpa dolores pariatur distinctio in hic delectus suscipit? Perspiciatis, minima illo?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ipsum et reiciendis eligendi dolores minima modi sint quasi commodi, similique dignissimos neque praesentium officia odio id atque harum dolor ipsam?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aperiam fuga commodi adipisci rem fugit possimus fugiat quas molestias aspernatur perspiciatis pariatur provident expedita rerum magnam laboriosam repellendus, nesciunt repudiandae.</p>
+        </div>
+    </div>
+</div>  
+{% endblock %}
+
+{% block section1 %}
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-md-7">
+            <img src="https://bulma.io/images/placeholders/1280x960.png" class="img-fluid" alt="Placeholder image">
+        </div>
+        <div class="col">
+            <h1 class="h5">
+                    Chatbots
+            </h1>
+            <h2 class="h6">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse, ipsum est iusto dolorum magnam officia soluta odio inventore deleniti laboriosam dolores commodi eveniet laudantium tempore? Blanditiis eligendi velit corporis in.
+            </h2>
+            <ul>
+                <li>24 Hours Support</li>
+                <li>24 Hours Support</li>
+                <li>24 Hours Support</li>
+                <li>24 Hours Support</li>
+                <li>24 Hours Support</li>
+                <li>24 Hours Support</li>
+            </ul>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam minima similique, minus itaque impedit sit et natus velit aliquam. Ratione ea rem qui porro suscipit ipsam quisquam ducimus magni eaque.
+            </p>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-block"><i class="fab fa-facebook-messenger"></i></button>
                 </div>
-                </div>
-              </div>
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns">
-                <div class="column">
-                    <h3 class="title">What does Uni Connect has to offer?</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur sequi quod, quia id facere placeat, animi veniam, maiores et culpa dolores pariatur distinctio in hic delectus suscipit? Perspiciatis, minima illo?</p>
-                    <br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ipsum et reiciendis eligendi dolores minima modi sint quasi commodi, similique dignissimos neque praesentium officia odio id atque harum dolor ipsam?</p>
-                    <br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aperiam fuga commodi adipisci rem fugit possimus fugiat quas molestias aspernatur perspiciatis pariatur provident expedita rerum magnam laboriosam repellendus, nesciunt repudiandae.</p>
+                <div class="col">
+                    <button class="btn btn-block"><i class="fab fa-weixin"></i></button>
                 </div>
             </div>
         </div>
     </div>
-</section>    
+</div>
 {% endblock %}
 
 {% block section2 %}
-<section class="hero">
-        <div class="hero-body">
-            <div class="container">
-                <div class="columns">
-                    <div class="column">
-                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    </div>
-                    <div class="column has-text-left is-half">
-                        <h1 class="title">
-                            Chatbots
-                        </h1>
-                        <h2 class="subtitle">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse, ipsum est iusto dolorum magnam officia soluta odio inventore deleniti laboriosam dolores commodi eveniet laudantium tempore? Blanditiis eligendi velit corporis in.
-                        </h2>
-                        <ul>
-                            <li>24 Hours Support</li>
-                            <li>24 Hours Support</li>
-                            <li>24 Hours Support</li>
-                            <li>24 Hours Support</li>
-                            <li>24 Hours Support</li>
-                            <li>24 Hours Support</li>
-                        </ul>
-                        <br>
-                        <div class="columns">
-                            <div class="column">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam minima similique, minus itaque impedit sit et natus velit aliquam. Ratione ea rem qui porro suscipit ipsam quisquam ducimus magni eaque.
-                            </div>
-                        </div>
-                        <div class="columns">
-                            <div class="column">
-                                <button class="button" style="width: 100%;"><i class="fab fa-facebook-messenger"></i></button>
-                            </div>
-                            <div class="column">
-                                <button class="button" style="width: 100%;"><i class="fab fa-skype"></i></button>
-                            </div>
-                            <div class="column">
-                                <button class="button" style="width: 100%;"><i class="fab fa-weixin"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3 class="display-6">A growing community around the world</h3>
+      <h5>See what other international student say about us</h5>
     </div>
-</section>
-{% endblock %}
-
-{% block section3 %}
-<section class="hero is-light" id="banner-page">
-    <div class="hero-body">
-        <div class="container">
-            <div class="columns">
-                <div class="column">
-                    <h3 class="title">Cutting Edge AI Technology</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur sequi quod, quia id facere placeat, animi veniam, maiores et culpa dolores pariatur distinctio in hic delectus suscipit? Perspiciatis, minima illo?</p>
-                    <br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ipsum et reiciendis eligendi dolores minima modi sint quasi commodi, similique dignissimos neque praesentium officia odio id atque harum dolor ipsam?</p>
-                    <br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aperiam fuga commodi adipisci rem fugit possimus fugiat quas molestias aspernatur perspiciatis pariatur provident expedita rerum magnam laboriosam repellendus, nesciunt repudiandae.</p>
-                </div>
-            </div>
+  </div>
+  <div class="row">
+    <div class="card-columns">
+      {% for testimony in testimonies %}
+      <div class="card">
+        {% if testimony.image %}
+        <img class="card-img-top" src="{{ testimony.image }}" alt="Card image cap">
+        {% endif %}
+        {% if testimony.title %}
+        <div class="card-body">
+          <h5 class="card-title">{{ testimony.title }} <small>@unistudent 30min ageo</small></h5>
+          <p class="card-text">{{ testimony.description|raw }}</p>
         </div>
+        {% endif %}
+      </div>
+      {% endfor %}
     </div>
-</section>    
+  </div>
+</div>
 {% endblock %}
