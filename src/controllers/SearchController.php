@@ -42,6 +42,7 @@ final class SearchController extends BaseController
   
         $uni = $this->uni->findBy(['*'], 'fldUniSlug = :slug', ['slug' => $uni]);
         $country = $this->country->findBy(['*'], 'fldCountrySlug = :slug', ['slug' => $country]);
+        $degree = $this->degree->findAllBy(['*'], 'tblUni_fldUniId = :id', ['id' => $uni['fldUniId']]);
     
         $data = [
             'title' => $uni['fldUniName'],
@@ -55,7 +56,7 @@ final class SearchController extends BaseController
                 'url' => $this->router->pathFor('regularSearch'),
                 'status' => ''
             ], [
-                'name' => 'Australia',
+                'name' => $country['fldCountryName'],
                 'url' => $this->router->pathFor('search', ['country' => $country['fldCountrySlug']]),
                 'status' => ''
             ], [
@@ -63,10 +64,26 @@ final class SearchController extends BaseController
                 'url' => '',
                 'status' => 'active'
             ]],
-            'uni' => $uni
+            'uni' => $uni,
+            'country' => $country,
+            'degrees' => $degree
         ];
 
         $this->view->render($response, 'pages/directories/university.html', $data);
+        return $response;
+    }
+
+    public function register(Request $request, Response $response, $args)
+    {
+        $uni = $args['uni'];
+        $uni = $this->uni->findBy(['*'], 'fldUniSlug = :slug', ['slug' => $uni]);
+        
+        $data = [
+            'title' => 'apply to ' . $uni['fldUniName'],
+            'uni' => $uni,
+        ];
+
+        $this->view->render($response, 'pages/directories/register.html', $data);
         return $response;
     }
 

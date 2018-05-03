@@ -14,9 +14,9 @@
                 </div>
                 <div class="col-md-4">     
                     {% if uni.fldUniLogo %}       
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" class="img-fluid" alt="{{ uni.fldUniName }}"> 
-                    {% else %}
                     <img src="{{ uni.fldUniLogo }}" class="img-fluid" alt="{{ uni.fldUniName }}"> 
+                    {% else %}
+                    <img src="https://bulma.io/images/placeholders/1280x960.png" class="img-fluid" alt="{{ uni.fldUniName }}"> 
                     {% endif %}
                 </div>
                 <div class="col">
@@ -24,13 +24,13 @@
                         <div class="col-md-8">
                             <strong>Description</strong>
                             <p>
-                                Lorem ipsum dolor sit amet consecteturugiat unde nam minima tenetur possimus iusto consequuntur eos.
+                                {{ uni.fldUniDescription|raw }}
                             </p>
                             <strong>Contact</strong>
                             <ul>
-                                <li>Email: <a href="mail:uni@edu.au">uni@edu.au</a></li>
-                                <li>Phone: <a href="tel:+61450918231">+61450918231</a></li>
-                                <li>Website: <a href="https://google.com" target="_blank">school.edu.au</a></li>
+                                <li>Email: <a href="mail:{{ uni.fldUniEmail }}">{{ uni.fldUniEmail }}</a></li>
+                                <li>Phone: <a href="tel:{{ uni.fldUniPhone }}">{{ uni.fldUniPhone }}</a></li>
+                                <li>Website: <a href="{{ uni.fldUniWebsite }}" target="_blank">{{ uni.fldUniWebsite }}</a></li>
                             </ul>
                         </div>
                         <div class="col">
@@ -39,7 +39,7 @@
                                 height="150px"
                                 frameborder="0" style="border:0"
                                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDmt7M3IODiZMhhgN91xwmNGkbrascSPKg
-                                  &q=Space+Needle,Seattle+WA" allowfullscreen>
+                                  &q={{ uni.fldUniAddress }}" allowfullscreen>
                               </iframe>
                         </div>
                     </div>
@@ -103,33 +103,22 @@
                 </li>
             </ul>
             <hr>
-            <button class="btn btn-primary btn-block" id="btnApply">Apply for this University!</button>
+            <a href="{{ path_for('apply', {uni:uni.fldUniSlug}) }}" class="btn btn-primary btn-block" id="btnApply">Apply to {{ uni.fldUniName }}!</a>
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                     <div class="jumbotron">
                         <h3>About the uni</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam sunt cupiditate! Dicta nesciunt provident assumenda culpa error dolorem autem, nisi aliquam voluptates omnis hic architecto esse, ut ullam suscipit.</p>
+                        {{ uni.fldUniDescription|raw }}
                         <hr>
                         <h3>School Requirements</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                        <ul>
-                            <li>Lorem ipsum</li>
-                            <li>Lorem ipsum</li>
-                            <li>Lorem ipsum</li>
-                            <li>Lorem ipsum</li>
-                        </ul>
+                        {{ uni.fldUniRequirements|raw }}
                         <hr>
                         <h3>Visa Requirements</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
+                        {{ country.fldCountryVisa|raw }}
                         <hr>
                         <h3>Uni Life</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                    </div>
+                        {{ uni.fldUniLife|raw }}
+                      </div>
                 </div>
                 <div class="tab-pane fade" id="pills-degree" role="tabpanel" aria-labelledby="pills-degree-tab">
                     <div class="jumbotron">
@@ -141,87 +130,16 @@
                                 <hr>
                             </div>
                             <div class="card-columns">
+                                {% for row in degrees %}
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title">BIT</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Bachelor of Information Technology</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="card-link">Full Details</a>
-                                        <a href="#" class="card-link">Study Plan</a>
+                                        <h5 class="card-title">{{ row.fldDegreeName }}</h5>
+                                        <p class="card-text">{{ row.fldDegreeDescription|raw }}</p>
+                                        <a href="{{ row.fldDegreeLink }}" target="_blank" class="card-link">Full Details</a>
+                                        <a href="{{ row.fldDegreeStudyPlan }}" target="_blank" class="card-link">Study Plan</a>
                                     </div>
                                 </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">BSCS</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Bachelor of Science Computer Science</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="card-link">Full Details</a>
-                                        <a href="#" class="card-link">Study Plan</a>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">BSENG</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Bachelor of Information Technology</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="card-link">Full Details</a>
-                                        <a href="#" class="card-link">Study Plan</a>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">BSED</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Bachelor of Information Technology</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="card-link">Full Details</a>
-                                        <a href="#" class="card-link">Study Plan</a>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">MIT (Soft Engr)</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Bachelor of Information Technology</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="card-link">Full Details</a>
-                                        <a href="#" class="card-link">Study Plan</a>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">MIT</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Bachelor of Information Technology</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="card-link">Full Details</a>
-                                        <a href="#" class="card-link">Study Plan</a>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Net Assoc</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Bachelor of Information Technology</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="card-link">Full Details</a>
-                                        <a href="#" class="card-link">Study Plan</a>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">BSBA</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Bachelor of Information Technology</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="card-link">Full Details</a>
-                                        <a href="#" class="card-link">Study Plan</a>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">BSA</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">Bachelor of Information Technology</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" class="card-link">Full Details</a>
-                                        <a href="#" class="card-link">Study Plan</a>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -234,44 +152,28 @@
                             height="350px"
                             frameborder="0" style="border:0"
                             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDmt7M3IODiZMhhgN91xwmNGkbrascSPKg
-                            &q=Space+Needle,Seattle+WA" allowfullscreen>
+                            &q={{ uni.fldUniAddress }}" allowfullscreen>
                         </iframe>           
                         <h3>Uni Life</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam sunt cupiditate! Dicta nesciunt provident assumenda culpa error dolorem autem, nisi aliquam voluptates omnis hic architecto esse, ut ullam suscipit.</p>
+                        {{ uni.fldUniLife|raw }}
                         <hr>
                         <h3>Uni Culture</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
+                        {{ uni.fldUniCulture|raw }}
                         <hr>
                         <h3>Accomodation</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
+                        {{ uni.fldUniAccomodation|raw }}
                         <hr>  
                     </div>
                 </div>
                 <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                     <div class="jumbotron">
                         <h3>People</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam sunt cupiditate! Dicta nesciunt provident assumenda culpa error dolorem autem, nisi aliquam voluptates omnis hic architecto esse, ut ullam suscipit.</p>
+                        {{ country.fldCountryPeople|raw }}
                         <hr>
-                            <h3>Local Culture</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <hr>
-                            <h3>Best Place to eat</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <hr>
-                            <h3>Parks</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                        </div>
-
+                        <h3>Local Culture</h3>
+                        {{ country.fldCountryCulture|raw }}
+                        <hr>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="pills-connect" role="tabpanel" aria-labelledby="pills-connect-tab">
                     <div class="jumbotron">

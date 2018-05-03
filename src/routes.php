@@ -33,6 +33,9 @@ $app->group('/', function () {
 
     $this->get('login', 'Src\Controller\HomeController:login')
         ->setName('login');
+
+    $this->get('apply/{uni}', 'Src\Controller\SearchController:register')
+        ->setName('apply');
 });
 
 $app->group('/creators', function () {
