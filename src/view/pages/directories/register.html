@@ -11,11 +11,13 @@
                 <div class="row no-gutters">
                     <div class="col">
                         <div class="jumbotron">
-                            <h2>UniConnect</h2>
-                            <hr>
-                            <h4>{{ uni.fldUniName }}</h4>
+                            <h2>
+                                <a href="{{ path_for('university', {country:country.fldCountrySlug, uni:uni.fldUniSlug }) }}" class="btn btn-light"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a> 
+                                <a href="{{ path_for('home') }}">UniConnect</a>
+                            </h2>       <hr>
+                            <h4>Apply to {{ uni.fldUniName }}</h4>
                             <p>
-                                {{ uni.fldUniDescription }}
+                                {{ uni.fldUniDescription|slice(0, 190) }}... <a href="{{ path_for('university', {country:country.fldCountrySlug, uni:uni.fldUniSlug }) }}">read more</a>
                             </p>   
                         </div>
                     </div>
@@ -30,44 +32,53 @@
                         </ul>
                         <div class="tab-content border" id="myTabContent">
                             <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <form class="container">
+                                <form class="container" id="login">
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
                                                 <br>
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                                <label for="login-email">Email address</label>
+                                                <input type="email" class="form-control" id="login-email" name="login-email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                                                <div class="valid-feedback">Nice! You got this one!</div>
+                                                <div class="invalid-feedback">Email is needed.</div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                <label for="login-password">Password</label>
+                                                <input type="password" class="form-control" id="login-password" name="login-password" placeholder="Password" required>
+                                                <div class="valid-feedback">Will keep this password a secret.</div>
+                                                <div class="invalid-feedback">Password is needed.</div>
                                             </div>
-                                            <button type="button" class="btn btnLogin">Login</button>
+                                            <button type="button" class="btn" id="btnLogin">Login</button>
+                                            <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal">forgot password</a>
                                             <hr>
-                                            <button type="button" class="btn btn-block btnLogin"><i class="fab fa-facebook-square"></i> Login with facebook</button>
+                                            <button type="button" class="btn btn-block" id="btnLoginWithFB"><i class="fab fa-facebook-square"></i> Login with facebook</button>
                                             <br>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <form class="container">
+                                <form class="container" id="registration" novalidate>
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
                                                 <br>
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                                <label for="register-email">Email address</label>
+                                                <input type="email" class="form-control" id="register-email" name="register-email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                                                <div class="valid-feedback">Nice! You got this one!</div>
+                                                <div class="invalid-feedback">Email is needed.</div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                <label for="register-password">Password</label>
+                                                <input type="password" class="form-control" id="register-password" name="register-password" placeholder="Password" required>
+                                                <div class="valid-feedback">Will keep this password a secret.</div>
+                                                <div class="invalid-feedback">Password is needed.</div>
                                             </div>
-                                            <button type="submit" class="btn btnLogin">Register</button>
+                                            <button type="button" class="btn" id="btnRegister">Register</button>
+                                            <input type="hidden" id="register-uni" name="register-uni" value="{{ uni.fldUniId }}">
+                                             
                                             <hr>
-                                            <button type="button" class="btn btn-block btnLogin"><i class="fab fa-facebook-square"></i> Register with facebook</button>
+                                            <button type="button" class="btn btn-block" id="btnRegisterWithFB"><i class="fab fa-facebook-square"></i> Register with facebook</button>
                                             <br>
                                         </div>
                                     </div>
@@ -82,4 +93,28 @@
     </div>
 </div>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Forgot password</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form class="container" id="forgot-form">
+                    <label for="forgot-email">Please enter your email here</label>
+                    <input type="email" class="form-control" id="forgot-email" name="forgot-email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                    <div class="valid-feedback">Nice! You got this one!</div>
+                    <div class="invalid-feedback">Email is needed.</div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="forgot-password">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
 {% endblock %}

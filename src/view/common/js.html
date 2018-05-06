@@ -12,6 +12,148 @@
 
 <script>
 
+    $("#forgot-password").click(function(event) {
+        var form = $("#forgot-form")
+
+        if (form[0].checkValidity() === false) {
+            event.preventDefault()
+            event.stopPropagation()
+        } else {
+            swal('Please check your email', 'Instructions to reset your password has been sent to your email', 'success');
+            $('#exampleModal').modal('hide');
+        }
+
+        form.addClass('was-validated');
+    });
+
+    $("#btnRegister").click(function(event) {
+        // Fetch form to apply custom Bootstrap validation
+        var form = $("#registration")
+
+        if (form[0].checkValidity() === false) {
+            event.preventDefault()
+            event.stopPropagation()
+        } else {
+        
+            var input = {
+                email: $("#register-email").val(),
+                password: $("#register-password").val(),
+                uni: $("#register-uni").val()
+            };
+        
+            $.post( '/register', input)
+                .done(function( data ) {
+                    obj = JSON.parse(data);
+                    
+                    if (obj.status == "success") {
+                        swal('Registration was successful', obj.description, 'success');
+
+                        window.location.replace("/profile");
+                    } else if (obj.status == "failed") {
+                        swal('Error', obj.description, 'warning');
+                    }    
+                });
+        }
+       
+        form.addClass('was-validated');
+    });
+
+    $(".update-checklist").change(function() {
+        var check = 0;
+
+        if($(this).is(":checked")) {
+            check = 1;
+        }
+
+        var input = {
+            id: $(this).val(),
+            check: check
+        }
+
+        console.log(input);
+
+        $.post('/profile/update-checklist', input)
+            .done(function( data ) {
+                obj = JSON.parse(data);
+         
+                
+            });
+
+    });
+
+    $("#btnSaveProfile").click(function(event) {
+        var form = $("#first-profile")
+
+        if (form[0].checkValidity() === false) {
+            event.preventDefault()
+            event.stopPropagation()
+        } else {
+            var degree = $("input[name='degree']:checked").val();
+
+            var input = {
+                txtFName: $("#txtFName").val(),
+                txtLName: $("#txtLName").val(),
+                txtPhone: $("#txtPhone").val(),
+                txtDOB: $("#txtDOB").val(),
+                txtStreet: $("#txtStreet").val(),
+                txtSuburb: $("#txtSuburb").val(),
+                txtState: $("#txtState").val(),
+                txtPostcode: $("#txtPostcode").val(),
+                degree: degree,
+            };
+
+            $.post('/profile/update-profile', input)
+                .done(function( data ) {
+                    obj = JSON.parse(data);
+                    
+                    if (obj.status == "success") {
+                        swal('Profile was updated!', obj.description, 'success');
+                        window.location.replace("/profile");
+
+                    } else if (obj.status == "failed") {
+                        swal('Error', obj.description, 'warning');
+                    }    
+                });
+        }
+       
+        form.addClass('was-validated');
+    });
+
+    $("#btnLogin").click(function(event) {
+
+    // Fetch form to apply custom Bootstrap validation
+        var form = $("#login")
+
+        if (form[0].checkValidity() === false) {
+            event.preventDefault()
+            event.stopPropagation()
+        } else {
+        
+            var input = {
+                email: $("#login-email").val(),
+                password: $("#login-password").val(),
+            };
+        
+            $.post( '/login', input)
+                .done(function( data ) {
+                    obj = JSON.parse(data);
+                    
+                    if (obj.status == "success") {
+                        swal('Login was successful', obj.description, 'success');
+                        window.location.replace("/profile");
+
+                    } else if (obj.status == "failed") {
+                        swal('Error', obj.description, 'warning');
+                    }    
+                });
+        }
+       
+        form.addClass('was-validated');
+
+    });
+
+
+
     $('#location').select2({
         placeholder: "Country you want to study",
         theme: "bootstrap",

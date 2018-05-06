@@ -181,4 +181,92 @@ final class HomeController extends BaseController
         return json_encode($result);
     }
 
+    public function registerAction(Request $request, Response $response, $args)
+    {
+        $input = $request->getParsedBody();
+
+        $password = password_hash($input['password'], PASSWORD_DEFAULT);
+
+        $user = $this->users->findBy(['fldUserEmail'], 'fldUserEmail = :email', ['email' => $input['email']]);
+
+        if($user) {
+            $results = [
+                'status' => "failed",
+                'description' => 'This email is already in our records, please login or use a new email.'
+            ];
+        } else {
+            $id = $this->users->insert([
+                'fldUserEmail' => $input['email'],
+                'fldUserPassword' => $password
+            ]);
+
+            if($input['uni']) $this->useruni->insert(['tblUsers_fldUserId' => $id, 'tblUni_fldUniId' => $input['uni']]);
+
+            $results = [
+                'status' => "success",
+                'description' => 'Account was succesfully created! You will be redirected to the correct page as soon as possible.'
+            ];
+
+            $segment = $this->session->getSegment('Aura\Session\SessionFactory');
+
+            $userData = [
+                'id' => $id,
+                'email' => $input['email']
+            ];
+
+            $segment->set('userData', $userData);
+        }
+
+        return json_encode($results);
+    }
+
+    public function loginAction(Request $request, Response $response, $args)
+    {
+        $input = $request->getParsedBody();
+
+        $user = $this->users->findBy(['fldUserId', 'fldUserEmail', 'fldUserPassword'], 'fldUserEmail = :email', ['email' => $input['email']]);
+        $id = $user['fldUserId'];
+
+        if(!$user) {
+            $results = [
+                'status' => "failed",
+                'description' => 'Invalid email or password. 1'
+            ];
+        } else {
+            if (password_verify($input['password'], $user['fldUserPassword'])) {
+                $segment = $this->session->getSegment('Aura\Session\SessionFactory');
+
+                $userData = [
+                    'id' => $id,
+                    'email' => $input['email']
+                ];
+    
+                $segment->set('userData', $userData);
+    
+                $results = [
+                    'status' => "success",
+                    'description' => 'Login was succesfully! You will be redirected to the correct page as soon as possible.'
+                ];
+            } else {
+                $results = [
+                    'status' => "failed",
+                    'description' => 'Invalid email or password. '
+                ]; 
+               
+            }
+            
+        }
+
+        return json_encode($results);
+    }
+
+    public function logout(Request $request, Response $response, $args)
+    {
+        $segment = $this->session->getSegment('Aura\Session\SessionFactory');
+       
+        $this->session->destroy();
+        return $response->withStatus(302)->withHeader('Location', $this->router->pathFor('home'));
+        exit;
+    }
+
 }

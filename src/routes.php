@@ -11,6 +11,11 @@ $app->group('/profile', function () {
         ->setName('gettingready');
     $this->get('/connect-with-other-students', 'Src\Controller\ProfileController:connect')
         ->setName('connect');
+
+    $this->post('/update-profile', 'Src\Controller\ProfileController:updateProfile')
+        ->setName('update-profile');
+    $this->post('/update-checklist', 'Src\Controller\ProfileController:updateChecklist')
+        ->setName('update-checklist');
 });
 
 // home
@@ -33,6 +38,13 @@ $app->group('/', function () {
 
     $this->get('login', 'Src\Controller\HomeController:login')
         ->setName('login');
+
+    $this->post('register', 'Src\Controller\HomeController:registerAction')
+        ->setName('register-action');
+    $this->post('login', 'Src\Controller\HomeController:loginAction')
+        ->setName('login-action');
+    $this->get('logout', 'Src\Controller\HomeController:logout')
+        ->setName('logout-action');
 
     $this->get('apply/{uni}', 'Src\Controller\SearchController:register')
         ->setName('apply');

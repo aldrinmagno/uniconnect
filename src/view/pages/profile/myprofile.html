@@ -33,26 +33,19 @@
     <br>
     <div class="row">
         <div class="col-md-12">
-            <h3>Congratulation! You are now closer in studying at your dream university.</h3>
-            <br>
+            <h3 class="title">Congratulation! You are now closer in studying at your dream university.</h3>
         </div>
+        {% if degree %}
         <div class="col-md-6">
             <div class="jumbotron">
-                <h4>University Name</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum similique dolores maxime beatae temporibus, placeat quas odit, laudantium tempora sint error aperiam blanditiis cum hic nobis incidunt exercitationem laboriosam id.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae blanditiis, asperiores sunt adipisci reprehenderit quis explicabo minus eos eveniet accusamus eaque sequi ipsum pariatur animi facilis voluptatibus possimus vitae sed.
-                </p>
-                <a href="">read more</a>
+                <h4>{{ uni.fldUniName }}</h4>
+                {{ uni.fldUniDescription|raw }}
+                <a href="{{ path_for('myuniversity') }}">read more</a>
             </div>
         </div>
         <div class="col-md-6">
-            <h4>Country</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, ipsa quia! Officiis est maiores nisi, perferendis quisquam totam, quaerat dolorum mollitia rem, veniam dolorem placeat possimus? Nulla earum veritatis cum!</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed reprehenderit dicta suscipit ducimus quam consequatur modi cupiditate nisi atque ut nesciunt, eum a aliquam voluptate debitis exercitationem quia itaque perspiciatis.</p>
-            <a href="">read more</a>
+            <h4>{{ country.fldCountryName }}</h4>
+            {{ country.fldCountryDescription|raw }}
         </div>   
         <div class="col-md-6">
             <h4>Visa Requirements</h4>
@@ -75,15 +68,98 @@
         <div class="col-md-12">
             <div class="jumbotron">
                 <h4>University Life</h4>
-                <p>
-                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum similique dolores maxime beatae temporibus, placeat quas odit, laudantium tempora sint error aperiam blanditiis cum hic nobis incidunt exercitationem laboriosam id.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae blanditiis, asperiores sunt adipisci reprehenderit quis explicabo minus eos eveniet accusamus eaque sequi ipsum pariatur animi facilis voluptatibus possimus vitae sed.
-                </p>
-                <a href="">read more</a>
+                {{ uni.fldUniLife|raw }}
             </div>
         </div> 
+        {% else %} 
+        <div class="col-md-12">
+            <h5>Before we get started with your academic journey, we must first need some of your details.</h5>
+            <form class="jumbotron" id="first-profile">
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <h5>Personal Information</h5>
+                        <hr>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="txtFName" class="col-sm-2 col-form-label">Name: </label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="txtFName" name="txtFName" placeholder="First Name *" required>
+                        <div class="invalid-feedback">First name is needed.</div>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="txtLName" name="txtLName" placeholder="Last Name *" required>
+                        <div class="invalid-feedback">Last name is needed.</div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="txtDOB" class="col-sm-2 col-form-label">Birthday</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="txtDOB" name="txtDOB" placeholder="birthday">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="txtPhone" class="col-sm-2 col-form-label">Phone</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="txtPhone" name="txtPhone" placeholder="Phone *" required>
+                        <div class="invalid-feedback">Phone is needed.</div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="txtStreet" class="col-sm-2 col-form-label">Address</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="txtStreet" name="txtStreet" placeholder="Street">
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="txtSuburb" name="txtSuburb" placeholder="Suburb">
+                        <br>
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="txtState" name="txtState" placeholder="State">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="txtPostcode" name="txtPostcode" placeholder="Postcode">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <br>
+                        <h5>Degree's offered by {{ uni.fldUniName }}</h5>
+                        <small class="text-info">Selecting a degree is required to proceed to the next step.</small>
+                        <hr>
+                        <div class="card-columns">
+                            {% for row in degrees %}
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" name="degree" id="radio{{ row.fldDegreeId }}" value="{{ row.fldDegreeId }}" required> 
+                                            <label class="custom-control-label" for="radio{{ row.fldDegreeId }}">{{ row.fldDegreeName }}</label>
+                                            <div class="invalid-feedback">Degree is needed</div>
+                                        </div>
+                                    </h5>
+                                    <label for="radio{{ row.fldDegreeId }}">
+                                        <p class="card-text">{{ row.fldDegreeDescription|raw }}</p>
+                                        <p class="card-text"><strong>Tuition Fee: </strong> $12,000</p>
+                                        <a href="{{ row.fldDegreeLink }}" target="_blank" class="card-link">Full Details</a>
+                                        <a href="{{ row.fldDegreeStudyPlan }}" target="_blank" class="card-link">Study Plan</a>
+                                    </label>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <button type="button" id="btnSaveProfile" class="btn btn-light">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {% endif %}
+       
     </div>
 </div>
 {% endblock %}

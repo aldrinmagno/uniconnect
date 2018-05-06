@@ -75,12 +75,21 @@ final class SearchController extends BaseController
 
     public function register(Request $request, Response $response, $args)
     {
+        $segment = $this->session->getSegment('Aura\Session\SessionFactory');
+        $user = $segment->get('userData');
+
+        if($user) {
+            return $response->withStatus(302)->withHeader('Location', $this->router->pathFor('myprofile'));
+        }
+
         $uni = $args['uni'];
         $uni = $this->uni->findBy(['*'], 'fldUniSlug = :slug', ['slug' => $uni]);
-        
+        $country = $this->country->findBy(['*'], 'fldCountryId = :slug', ['slug' => $uni['tblCountry_fldCountryId']]);
+
         $data = [
-            'title' => 'apply to ' . $uni['fldUniName'],
+            'title' => 'Apply to ' . $uni['fldUniName'],
             'uni' => $uni,
+            'country' => $country
         ];
 
         $this->view->render($response, 'pages/directories/register.html', $data);

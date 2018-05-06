@@ -32,6 +32,7 @@
                                 <li>Phone: <a href="tel:{{ uni.fldUniPhone }}">{{ uni.fldUniPhone }}</a></li>
                                 <li>Website: <a href="{{ uni.fldUniWebsite }}" target="_blank">{{ uni.fldUniWebsite }}</a></li>
                             </ul>
+                            <strong>Averange Tuition Fee: </strong> $10,000
                         </div>
                         <div class="col">
                                 <iframe
@@ -135,6 +136,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{ row.fldDegreeName }}</h5>
                                         <p class="card-text">{{ row.fldDegreeDescription|raw }}</p>
+                                        <p class="card-text"><strong>Tuition Fee: </strong> $12,000</p>
                                         <a href="{{ row.fldDegreeLink }}" target="_blank" class="card-link">Full Details</a>
                                         <a href="{{ row.fldDegreeStudyPlan }}" target="_blank" class="card-link">Study Plan</a>
                                     </div>

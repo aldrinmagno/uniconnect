@@ -158,3 +158,6 @@ $container['users'] = function ($c) {
 $container['useruni'] = function ($c) {
     return new Src\Model\UserUniModel($c);
 };
+$container['checklist'] = function ($c) {
+    return new Src\Model\ChecklistModel($c);
+};

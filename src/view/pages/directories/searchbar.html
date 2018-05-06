@@ -3,12 +3,12 @@
     <hr class="my-4">
     <form>
         <div class="form-group">
-            <label for="location">Location</label>
-            <select class="form-control" id="Alocation"></select>
+            <label for="location">Country</label>
+            <select class="form-control" id="country"></select>
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Degree</label>
-            <select class="form-control select2"></select>
+            <select class="form-control" id="degree"></select>
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput">Tuition Fee</label>
@@ -20,13 +20,9 @@
                 <input type="text" placeholder="max" class="form-control">
             </div>
         </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput">Establish Year</label>
-            <select class="form-control select2"></select>
-        </div>
     </form>
     <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
     <p class="lead">
-    <a class="btn btn-light btn-block search" href="{{ for }}" role="button">Search</a>
+    <button class="btn btn-light btn-block" id="btnSearch">Search</button>
     </p>
 </div>

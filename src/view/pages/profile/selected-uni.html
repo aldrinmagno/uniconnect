@@ -29,183 +29,200 @@
 {% endblock %}
 
 {% block maincontent %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <br>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="h3">University Name</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="h3">{{ uni.fldUniName }}</h1>
+                </div>
+                <div class="col-md-4">     
+                    {% if uni.fldUniLogo %}       
+                    <img src="{{ uni.fldUniLogo }}" class="img-fluid" alt="{{ uni.fldUniName }}"> 
+                    {% else %}
+                    <img src="https://bulma.io/images/placeholders/1280x960.png" class="img-fluid" alt="{{ uni.fldUniName }}"> 
+                    {% endif %}
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <strong>Description</strong>
+                            <p>
+                                {{ uni.fldUniDescription|raw }}
+                            </p>
+                            <strong>Contact</strong>
+                            <ul>
+                                <li>Email: <a href="mail:{{ uni.fldUniEmail }}">{{ uni.fldUniEmail }}</a></li>
+                                <li>Phone: <a href="tel:{{ uni.fldUniPhone }}">{{ uni.fldUniPhone }}</a></li>
+                                <li>Website: <a href="{{ uni.fldUniWebsite }}" target="_blank">{{ uni.fldUniWebsite }}</a></li>
+                            </ul>
+                            <strong>Averange Tuition Fee: </strong> $10,000
+                        </div>
+                        <div class="col">
+                                <iframe
+                                width="100%"
+                                height="150px"
+                                frameborder="0" style="border:0"
+                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDmt7M3IODiZMhhgN91xwmNGkbrascSPKg
+                                  &q={{ uni.fldUniAddress }}" allowfullscreen>
+                              </iframe>
+                        </div>
                     </div>
-                    <div class="col-md-4">            
-                        <img src="https://bulma.io/images/placeholders/1280x960.png" class="img-fluid" alt="">  
-                    </div>
-                    <div class="col">
+                </div>
+            </div>
+        </div>      
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <hr>
+            <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a 
+                        class="nav-link active" 
+                        id="pills-home-tab" 
+                        data-toggle="pill" 
+                        href="#pills-home" 
+                        role="tab" 
+                        aria-controls="pills-home" 
+                        aria-selected="true">University</a>
+                </li>
+                <li class="nav-item">
+                    <a 
+                        class="nav-link" 
+                        id="pills-degree-tab" 
+                        data-toggle="pill" 
+                        href="#pills-degree" 
+                        role="tab" 
+                        aria-controls="pills-degree" 
+                        aria-selected="false">Degree</a>
+                </li>
+                <li class="nav-item">
+                    <a 
+                        class="nav-link" 
+                        id="pills-profile-tab" 
+                        data-toggle="pill" 
+                        href="#pills-profile" 
+                        role="tab" 
+                        aria-controls="pills-profile" 
+                        aria-selected="false">Culture</a>
+                </li>
+                <li class="nav-item">
+                    <a 
+                        class="nav-link" 
+                        id="pills-contact-tab" 
+                        data-toggle="pill" 
+                        href="#pills-contact" 
+                        role="tab" 
+                        aria-controls="pills-contact" 
+                        aria-selected="false">Country</a>
+                </li>
+                <li class="nav-item">
+                    <a 
+                        class="nav-link" 
+                        id="pills-connect-tab" 
+                        data-toggle="pill" 
+                        href="#pills-connect" 
+                        role="tab" 
+                        aria-controls="pills-connect" 
+                        aria-selected="false">Connect</a>
+                </li>
+            </ul>
+            <hr>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="jumbotron">
+                        <h3>About the uni</h3>
+                        {{ uni.fldUniDescription|raw }}
+                        <hr>
+                        <h3>School Requirements</h3>
+                        {{ uni.fldUniRequirements|raw }}
+                        <hr>
+                        <h3>Visa Requirements</h3>
+                        {{ country.fldCountryVisa|raw }}
+                        <hr>
+                        <h3>Uni Life</h3>
+                        {{ uni.fldUniLife|raw }}
+                      </div>
+                </div>
+                <div class="tab-pane fade" id="pills-degree" role="tabpanel" aria-labelledby="pills-degree-tab">
+                    <div class="jumbotron">
                         <div class="row">
-                            <div class="col-md-8">
-                                <strong>Description</strong>
+                            <div class="col-md-12">
+                                <h3>
+                                    Degree's offered
+                                </h3>
+                                <hr>
+                                <h4>You have selected BSIT</h4>
                                 <p>
-                                    Lorem ipsum dolor sit amet consecteturugiat unde nam minima tenetur possimus iusto consequuntur eos.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia architecto esse ullam inventore quis similique doloribus iure asperiores perspiciatis! Doloribus dolore temporibus maiores deleniti magni repudiandae soluta, autem adipisci mollitia.
                                 </p>
-                                <strong>Contact</strong>
-                                <ul>
-                                    <li>Email: <a href="mail:uni@edu.au">uni@edu.au</a></li>
-                                    <li>Phone: <a href="tel:+61450918231">+61450918231</a></li>
-                                    <li>Website: <a href="https://google.com" target="_blank">school.edu.au</a></li>
-                                </ul>
-                            </div>
-                            <div class="col">
-                                    <iframe
-                                    width="100%"
-                                    height="150px"
-                                    frameborder="0" style="border:0"
-                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDmt7M3IODiZMhhgN91xwmNGkbrascSPKg
-                                      &q=Space+Needle,Seattle+WA" allowfullscreen>
-                                  </iframe>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>      
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <hr>
-                <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
-                    <li class="nav-item">
-                        <a 
-                            class="nav-link active" 
-                            id="pills-home-tab" 
-                            data-toggle="pill" 
-                            href="#pills-home" 
-                            role="tab" 
-                            aria-controls="pills-home" 
-                            aria-selected="true">University</a>
-                    </li>
-                    <li class="nav-item">
-                        <a 
-                            class="nav-link" 
-                            id="pills-degree-tab" 
-                            data-toggle="pill" 
-                            href="#pills-degree" 
-                            role="tab" 
-                            aria-controls="pills-degree" 
-                            aria-selected="false">My Degree</a>
-                    </li>
-                    <li class="nav-item">
-                        <a 
-                            class="nav-link" 
-                            id="pills-profile-tab" 
-                            data-toggle="pill" 
-                            href="#pills-profile" 
-                            role="tab" 
-                            aria-controls="pills-profile" 
-                            aria-selected="false">Culture</a>
-                    </li>
-                    <li class="nav-item">
-                        <a 
-                            class="nav-link" 
-                            id="pills-contact-tab" 
-                            data-toggle="pill" 
-                            href="#pills-contact" 
-                            role="tab" 
-                            aria-controls="pills-contact" 
-                            aria-selected="false">Country</a>
-                    </li>
-                </ul>
-                <hr>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        <div class="jumbotron">
-                            <h3>About the uni</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam sunt cupiditate! Dicta nesciunt provident assumenda culpa error dolorem autem, nisi aliquam voluptates omnis hic architecto esse, ut ullam suscipit.</p>
-                            <hr>
-                            <h3>School Requirements</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <ul>
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
-                            </ul>
-                            <hr>
-                            <h3>Visa Requirements</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <hr>
-                            <h3>Uni Life</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                        </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="jumbotron">
+                        <h3>Map</h3>
+                        <iframe
+                            width="100%"
+                            height="350px"
+                            frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDmt7M3IODiZMhhgN91xwmNGkbrascSPKg
+                            &q={{ uni.fldUniAddress }}" allowfullscreen>
+                        </iframe>           
+                        <h3>Uni Life</h3>
+                        {{ uni.fldUniLife|raw }}
+                        <hr>
+                        <h3>Uni Culture</h3>
+                        {{ uni.fldUniCulture|raw }}
+                        <hr>
+                        <h3>Accomodation</h3>
+                        {{ uni.fldUniAccomodation|raw }}
+                        <hr>  
                     </div>
-                    <div class="tab-pane fade" id="pills-degree" role="tabpanel" aria-labelledby="pills-degree-tab">
-                        <div class="jumbotron">
-                            <h3>My Degree</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam sunt cupiditate! Dicta nesciunt provident assumenda culpa error dolorem autem, nisi aliquam voluptates omnis hic architecto esse, ut ullam suscipit.</p>
-                            <hr>
-                            <h2>BIT</h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente tempore facere, tenetur eveniet voluptates nam, nisi sint ipsa ut libero quis et quas fugiat iste eaque harum omnis magni repellendus.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam a voluptas nostrum excepturi. Blanditiis perspiciatis hic quasi ea ad culpa, possimus reiciendis consequuntur! Nam optio excepturi voluptatem maxime deserunt quia.
-                            </p>
-                        </div>
+                </div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <div class="jumbotron">
+                        <h3>People</h3>
+                        {{ country.fldCountryPeople|raw }}
+                        <hr>
+                        <h3>Local Culture</h3>
+                        {{ country.fldCountryCulture|raw }}
+                        <hr>
                     </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="jumbotron">
-                            <h3>Map</h3>
-                            <iframe
-                                width="100%"
-                                height="350px"
-                                frameborder="0" style="border:0"
-                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDmt7M3IODiZMhhgN91xwmNGkbrascSPKg
-                                &q=Space+Needle,Seattle+WA" allowfullscreen>
-                            </iframe>           
-                            <h3>Uni Life</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam sunt cupiditate! Dicta nesciunt provident assumenda culpa error dolorem autem, nisi aliquam voluptates omnis hic architecto esse, ut ullam suscipit.</p>
-                            <hr>
-                            <h3>Uni Culture</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <hr>
-                            <h3>Accomodation</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                            <hr>  
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <div class="jumbotron">
-                            <h3>People</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam sunt cupiditate! Dicta nesciunt provident assumenda culpa error dolorem autem, nisi aliquam voluptates omnis hic architecto esse, ut ullam suscipit.</p>
-                            <hr>
-                                <h3>Local Culture</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                                <hr>
-                                <h3>Best Place to eat</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                                <hr>
-                                <h3>Parks</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
-                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consectetur fuga provident impedit eaque eos dolor voluptates, fugiat officiis, totam nesciunt id. Culpa, deleniti! Eaque alias minima quo exercitationem expedita.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-connect" role="tabpanel" aria-labelledby="pills-connect-tab">
+                    <div class="jumbotron">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Connect with other students</h4>
+                                <p>
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci architecto ratione mollitia, minus nihil ipsum aperiam qui repudiandae quam voluptates magni itaque, enim ipsa dolores officia ea doloremque dolorem obcaecati!
+                                </p>
                             </div>
+                            <div class="card-columns">
+                            {% for testimony in testimonies %}
+                                <div class="card">
+                                    {% if testimony.image %}
+                                    <img class="card-img-top" src="{{ testimony.image }}" alt="Card image cap">
+                                    {% endif %}
+                                    {% if testimony.title %}
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ testimony.title }} <small>@unistudent 30min ageo</small></h5>
+                                        <p class="card-text">{{ testimony.description|raw }}</p>
+                                    </div>
+                                     {% endif %}
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+</div>
 {% endblock %}
 
    
