@@ -1,85 +1,147 @@
-{% extends "/templates/home.html" %}
+{% extends "/templates/common.html" %}
 
 {% block title %} {{ title }} {% endblock %}
 
-{% block breadcrumbs %}
-{% include 'common/breadcrumbs.html' %}
-{% endblock %}
-
 {% block hero %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-                <h2>What does Uni Connect has to offer?</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur sequi quod, quia id facere placeat, animi veniam, maiores et culpa dolores pariatur distinctio in hic delectus suscipit? Perspiciatis, minima illo?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ipsum et reiciendis eligendi dolores minima modi sint quasi commodi, similique dignissimos neque praesentium officia odio id atque harum dolor ipsam?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aperiam fuga commodi adipisci rem fugit possimus fugiat quas molestias aspernatur perspiciatis pariatur provident expedita rerum magnam laboriosam repellendus, nesciunt repudiandae.</p>
+<div class="main-background">
+    <div class="container">
+        <br>
+        {% include 'common/breadcrumbs.html' %}
+        <div class="white-transparent">
+            <div class="row text-white">
+                <div class="col-md-12">
+                    <h2 class="text-warning"> <u>What does UniConnect has to offer?</u></h2>
+                    <ul>
+                        <li>
+                            UniConnect is offering university profiles and courses available produced from the inputted information from users.
+                        </li>
+                        <li>
+                            Information available in this app is for the Australian and New Zealand universities only but its accessible by any foreign student aspirants anywhere and can be subscribed by any current international students located in these two counties.
+                        </li>
+                        <li>
+                            UniConnect offers information comprising list of visa and school requirements of the chosen university to study.
+                        </li>
+                        <li>
+                            This app will help tracking the progress of the applicants in complying all the requirements.
+                        </li>
+                        <li>
+                            UniConnect can build virtual network to some other students who have chosen the same course in the same university.
+                        </li>
+                        <li>
+                            The app will provide location and cultural overview of the university that have been chosen during pre-arrival processing.
+                        </li>
+                        <li>
+                            UniConnect has an AI integrated chatbot that will actively assist 24/7  international students in addressing the educational and cultural challenges once reached the university in Australia and New Zealand.
+                        </li>
+                    </ul>   
+                </div>
+            </div>
         </div>
-    </div>
-</div>  
+    </div>  
+</div>
 {% endblock %}
 
 {% block section1 %}
 <div class="container">
-    <br>
+    <br><br><br>
     <div class="row">
-        <div class="col-md-7">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" class="img-fluid" alt="Placeholder image">
+        <div class="col">
+            <div class="top-uni-text">
+                <h3 class="h3">
+                    Active 24/7 Chatbot Support
+                </h3>
+                <h4 class="text-muted text-left">
+                    A chatbot is a software system, which can interact or “chat” with a human user in natural in universal English language. Chatbots can help inform users or help them in fulfilling tasks.      </h4>
+                <p class="text-left">
+                    UniConnect has built-in chatbot feature capable of simulating a conversation with a person. It has an artificial intelligence software designed to perform a series of tasks on its own and without the help of a human being. This feature of the UniConnect will assist the need of foreign students in addressing pre-arrival, study, and cultural challenges once reached the university in Australia and New Zealand.     
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="/assets/uploads/images/j-4.jpg" class="img-fluid" alt="Active 24/4 Chatbot Support">
+        </div>
+    </div>
+    <br><br>
+    <hr>
+    <br><br><br>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/assets/uploads/images/j123123.jpg" class="img-fluid" alt="Comprehensive Australian and New Zealand List Universities">
         </div>
         <div class="col">
-            <h1 class="h5">
-                    Chatbots
-            </h1>
-            <h2 class="h6">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse, ipsum est iusto dolorum magnam officia soluta odio inventore deleniti laboriosam dolores commodi eveniet laudantium tempore? Blanditiis eligendi velit corporis in.
-            </h2>
-            <ul>
-                <li>24 Hours Support</li>
-                <li>24 Hours Support</li>
-                <li>24 Hours Support</li>
-                <li>24 Hours Support</li>
-                <li>24 Hours Support</li>
-                <li>24 Hours Support</li>
-            </ul>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam minima similique, minus itaque impedit sit et natus velit aliquam. Ratione ea rem qui porro suscipit ipsam quisquam ducimus magni eaque.
-            </p>
-            <div class="row">
-                <div class="col">
-                    <button class="btn btn-block"><i class="fab fa-facebook-messenger"></i></button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-block"><i class="fab fa-weixin"></i></button>
-                </div>
+            <div class="top-uni-text">
+                <h3 class="h3">
+                    Comprehensive Australian and New Zealand List Universities
+                </h3>
+                <h4 class="text-muted text-left">
+                        Compare universities around Australia and New Zealand with our interactive university search tool. Information available at this time is for the two countries mentioned but its accessible by any foreign student aspirants anywhere and subscribe by any current international students located in these two counties. 
+                </h4>
+                <p class="text-left">
+                    UniConnect offers information comprising list of visa and school requirements of the chosen university to study. This app will help tracking the progress of the applicants in complying all the requirements. 
+                </p>
             </div>
         </div>
     </div>
+    <br><br><br>
+    <hr>
+    <br><br><br>
+    <div class="row">
+        <div class="col">
+            <div class="top-uni-text">
+                <h3 class="h3">
+                    Connection Building Capabilities
+                </h3>
+                <h4 class="text-muted text-left">
+                    UniConnect can form the virtual connection with other uni students who have chosen the same course in the same university. It establishes the connection to others, therefore engagement to others with the different cultural background is possible by using this website app.
+                </h4>
+                <p class="text-left">
+                    It provides location and cultural overview of the university that have been chosen during pre-arrival processing.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="/assets/uploads/images/connect-hand-jigsaw-164531.jpg" class="img-fluid" alt="Connection Building Capabilities">
+        </div>
+    </div>
+    <br><br><br>
 </div>
 {% endblock %}
+
 
 {% block section2 %}
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center">
-      <h3 class="display-6">A growing community around the world</h3>
-      <h5>See what other international student say about us</h5>
+    <div class="col-md-12 text-center top-uni-text">
+      <h3>Student Testimonies</h3>
+      <h4>How we helped international students</h4>
+      <br>
     </div>
   </div>
   <div class="row">
-    <div class="card-columns">
-      {% for testimony in testimonies %}
-      <div class="card">
-        {% if testimony.image %}
-        <img class="card-img-top" src="{{ testimony.image }}" alt="Card image cap">
-        {% endif %}
-        {% if testimony.title %}
-        <div class="card-body">
-          <h5 class="card-title">{{ testimony.title }} <small>@unistudent 30min ageo</small></h5>
-          <p class="card-text">{{ testimony.description|raw }}</p>
+    <div class="col">
+      <div class="card-columns">
+        {% for testimony in testimonies %}
+        <div class="card">
+          {% if testimony.image %}
+          <img class="card-img-top" src="/assets/uploads/images/{{ testimony.image }}" alt="{{ testimony.title }} ">
+          {% endif %}
+          {% if testimony.title %}
+          <div class="card-body">
+              <h4 class="card-title text-center">
+                  <br>
+                  {{ testimony.title }} <br> <a href="{{ path_for('university', {country:testimony.fldUniSlug, uni:testimony.fldCountrySlug}) }}">@{{ testimony.fldUniName }}</a>
+                <br>
+                <br>
+              </h4>
+              <blockquote class="blockquote">
+                <p class="mb-0 card-text">{{ testimony.description|raw }}</p>
+                <footer class="blockquote-footer">{{ testimony.title }}</footer>
+              </blockquote>
+          </div>
+          {% endif %}
         </div>
-        {% endif %}
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
   </div>
 </div>

@@ -1,166 +1,175 @@
-{% extends "/templates/home.html" %}
+{% extends "/templates/common.html" %}
 
 {% block title %} {{ title }} {% endblock %}
 
-{% block breadcrumbs %}
-{% include 'common/breadcrumbs.html' %}
-{% endblock %}
-
 {% block hero %}
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>FAQ</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, voluptate iure. Soluta ut asperiores blanditiis praesentium nostrum. Nobis earum nostrum ipsa eius laudantium rerum vel natus odit. Porro, facere nulla!</p>
-    </div>
-  </div>
-</div>  
+<div class="main-background">
+    <div class="container">
+        <br>
+        {% include 'common/breadcrumbs.html' %}
+        <div class="white-transparent">
+            <div class="row text-white">
+                <div class="col-md-12">
+                    <h2 class="text-warning"> <u>FAQ about UniConnect</u></h2>
+                    <p>
+                        This information is only a guide and should not replace information supplied by Previous international students. If you have any questions about your application or process in applying Universities, please speak with our chatbot or  contact any team member to assist you. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
 {% endblock %}
 
 {% block section1 %}
 <div class="container">
-  <br>
-    <div id="accordion">
+  <br><br><br>
+  <div class="top-uni-text">
+      <h3 class="h3">
+          Australia and New Zealand
+      </h3>
+   </div>
+  <div id="accordion" class="faq-text">
     <div class="card">
-      <div class="card-header" id="headingOne">
+     <div class="card-header" id="faq1">
         <h5 class="mb-0">
-          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Collapsible Group Item #1
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapsefaq1" aria-expanded="true" aria-controls="collapsefaq1">
+              Which country is best for the bachelors and master’s degree?
           </button>
         </h5>
       </div>
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div id="collapsefaq1" class="collapse show" aria-labelledby="faq1" data-parent="#accordion">
         <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            Australia is better nowadays for the future studies as there are variety of degrees available there with so many universities. 
         </div>
       </div>
     </div>
     <div class="card">
-      <div class="card-header" id="headingTwo">
+      <div class="card-header" id="faq2">
         <h5 class="mb-0">
-          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Collapsible Group Item #2
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsefaq2" aria-expanded="false" aria-controls="collapsefaq2">
+              Is going Australia will give me benefit in future for better job?
           </button>
         </h5>
       </div>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div id="collapsefaq2" class="collapse show" aria-labelledby="faq2" data-parent="#accordion">
         <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            There are numerous jobs available in Australia in every field, so it won't be any issue regarding job.
         </div>
       </div>
     </div>
     <div class="card">
-      <div class="card-header" id="headingThree">
+      <div class="card-header" id="faq3">
         <h5 class="mb-0">
-          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Collapsible Group Item #3
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsefaq3" aria-expanded="false" aria-controls="collapsefaq3">
+              Which is the best university in Australia?
           </button>
         </h5>
       </div>
-      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div id="collapsefaq3" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
         <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            all the governments universities are good in Australia 
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="faq4">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsefaq4" aria-expanded="false" aria-controls="collapsefaq4">
+              Which is the cheap place to live in Australia?
+          </button>
+        </h5>
+      </div>
+      <div id="collapsefaq4" class="collapse show" aria-labelledby="faq4" data-parent="#accordion">
+        <div class="card-body">
+            Melbourne is pretty cheap as food is really cheap there and so as sharing houses. 
         </div>
       </div>
     </div>
   </div>
 </div>  
+<br><br><br>
 {% endblock %}
 
 {% block section2 %}
 <div class="container">
-    <div id="accordion">
-    <div class="card">
-      <div class="card-header" id="headingOne">
-        <h5 class="mb-0">
-          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Collapsible Group Item #1
-          </button>
-        </h5>
+    <br><br>
+    <div class="top-uni-text">
+        <h3 class="h3">
+            University
+        </h3>
+     </div>
+    <div id="accordion" class="faq-text">
+      <div class="card">
+       <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                What is the fees range per semester/ degree in Australia?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+              Most of the universities have price range of $10000-13000 per semester 
+          </div>
+        </div>
       </div>
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                What process are used and how much time to get the visa?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body">
+              Once you get your offer letter from the university and you pay the fees for first semester, you can apply for visa which will take 4-6 working weeks
+          </div>
         </div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-header" id="headingTwo">
-        <h5 class="mb-0">
-          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Collapsible Group Item #2
-          </button>
-        </h5>
-      </div>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header" id="headingThree">
-        <h5 class="mb-0">
-          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Collapsible Group Item #3
-          </button>
-        </h5>
-      </div>
-      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
-      </div>
-    </div>
-  </div>
-</div>  
+  </div>  
+  <br><br><br>
 {% endblock %}
 
 {% block section3 %}
 <div class="container">
-    <div id="accordion">
-    <div class="card">
-      <div class="card-header" id="headingOne">
-        <h5 class="mb-0">
-          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Collapsible Group Item #1
-          </button>
-        </h5>
-      </div>
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+    <div class="top-uni-text">
+        <h3 class="h3">
+            Fees
+        </h3>
+     </div>
+    <div id="accordion" class="faq-text">
+      <div class="card">
+       <div class="card-header" id="headingOnethird">
+          <h5 class="mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOneThird" aria-expanded="true" aria-controls="collapseOneThird">
+                What is the fees range per semester/ degree in Australia?
+            </button>
+          </h5>
+        </div>
+        <div id="collapseOneThird" class="collapse show" aria-labelledby="headingOnethird" data-parent="#accordion">
+          <div class="card-body">
+              Most of the universities have price range of $10000-13000 per semester 
+          </div>
         </div>
       </div>
-    </div>
-    <div class="card">
-      <div class="card-header" id="headingTwo">
-        <h5 class="mb-0">
-          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Collapsible Group Item #2
-          </button>
-        </h5>
-      </div>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-        <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        </div>
-      </div>
-    </div>
-    <div class="card">
+      <div class="card">
       <div class="card-header" id="headingThree">
         <h5 class="mb-0">
           <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Collapsible Group Item #3
+              How much money I need to spend in the starting to go Australia?
           </button>
         </h5>
       </div>
-      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
         <div class="card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            Around $20-25k.
         </div>
       </div>
     </div>
-  </div>
-</div>  
+    </div>
+  </div>  
+  <br><br><br>
 {% endblock %}

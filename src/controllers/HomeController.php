@@ -12,7 +12,16 @@ final class HomeController extends BaseController
         $data = [
             'title' => "Home",
             'unis' => $this->uni->topUni(),
-            'testimonies' => $this->users->testimonies()
+            'testimonies' => $this->testimony->homePage([
+                    'fldUniLogo AS image', 
+                    'CONCAT(fldUserFName, " ", fldUserLName) AS title', 
+                    'fldTestimony AS description',
+                    'fldUniName',
+                    'fldUniSlug',
+                    'fldCountrySlug'
+                ], 'fldTestimonyDeleted = :del', 
+                ['del' => 0]),
+            'careers' => $this->careers->findAllBy(['*'], 'fldCareerDeleted = :del', ['del' => 0])
         ];
 
         $this->view->render($response, 'pages/home/index.html', $data);
@@ -36,6 +45,7 @@ final class HomeController extends BaseController
                 'url' => $this->router->pathFor('aboutus'),
                 'status' => 'active'
             ]],
+            'creators' => $this->users->findBy(['*'], 'fldUserSlug = :slug', ['slug' => $args['creator']])
         ];
 
         $this->view->render($response, 'pages/home/creator.html', $data);
@@ -55,7 +65,15 @@ final class HomeController extends BaseController
                     'url' => $this->router->pathFor('regularSearch'),
                     'status' => 'active'
                 ]],
-            'testimonies' => $this->users->testimonies()
+            'testimonies' => $this->testimony->homePage([
+                'fldUniLogo AS image', 
+                'CONCAT(fldUserFName, " ", fldUserLName) AS title', 
+                'fldTestimony AS description',
+                'fldUniName',
+                'fldUniSlug',
+                'fldCountrySlug'
+            ], 'fldTestimonyDeleted = :del', 
+            ['del' => 0]),
         ];
 
         $this->view->render($response, 'pages/home/search.html', $data);
@@ -75,24 +93,6 @@ final class HomeController extends BaseController
                     'url' => $this->router->pathFor('aboutus'),
                     'status' => 'active'
                 ]],
-            'creators' => [[
-                    'image' => 'https://bulma.io/images/placeholders/1280x960.png',
-                    'name' => 'Aldrin',
-                    'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus repellat asperiores, id sequi doloribus exercitationem ab quam in modi tenetur dolores labore nam veniam minus ullam aliquam quisquam minima excepturi?'
-                ], [
-                    'image' => 'https://bulma.io/images/placeholders/1280x960.png',
-                    'name' => 'Jasvir',
-                    'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus repellat asperiores, id sequi doloribus exercitationem ab quam in modi tenetur dolores labore nam veniam minus ullam aliquam quisquam minima excepturi?'          
-                ],  [
-                    'image' => 'https://bulma.io/images/placeholders/1280x960.png',
-                    'name' => 'Vilma',
-                    'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus repellat asperiores, id sequi doloribus exercitationem ab quam in modi tenetur dolores labore nam veniam minus ullam aliquam quisquam minima excepturi?'          
-                ],  [
-                    'image' => 'https://bulma.io/images/placeholders/1280x960.png',
-                    'name' => 'Irene',
-                    'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus repellat asperiores, id sequi doloribus exercitationem ab quam in modi tenetur dolores labore nam veniam minus ullam aliquam quisquam minima excepturi?'          
-                ], 
-            ]
         ];
 
         $this->view->render($response, 'pages/home/aboutus.html', $data);
@@ -112,10 +112,43 @@ final class HomeController extends BaseController
                     'url' => $this->router->pathFor('services'),
                     'status' => 'active'
                 ]],
-            'testimonies' => $this->users->testimonies()
+            'testimonies' => $this->testimony->homePage([
+                'fldUniLogo AS image', 
+                'CONCAT(fldUserFName, " ", fldUserLName) AS title', 
+                'fldTestimony AS description',
+                'fldUniName',
+                'fldUniSlug',
+                'fldCountrySlug'
+            ], 'fldTestimonyDeleted = :del', 
+            ['del' => 0]),
         ];
 
         $this->view->render($response, 'pages/home/services.html', $data);
+        return $response;
+    }
+
+    public function careers(Request $request, Response $response, $args)
+    {
+        $careers = $this->careers->findBy(['*'], 'fldCareerSlug = :slug', ['slug' => $args['careers']]);
+        $data = [
+            'title' => $careers['fldCareerName'] . " - UniConnect",
+            'breadcrums' => [[
+                    'name' => 'Home',
+                    'url' => $this->router->pathFor('home'),
+                    'status' => ''
+                ], [
+                    'name' => 'Careers',
+                    'url' => '',
+                    'status' => 'active'
+                ], [
+                    'name' => $careers['fldCareerName'],
+                    'url' => '',
+                    'status' => 'active'
+                ]],
+            'careers' => $careers
+        ];
+
+        $this->view->render($response, 'pages/home/careers.html', $data);
         return $response;
     }
 
@@ -132,7 +165,6 @@ final class HomeController extends BaseController
                     'url' => $this->router->pathFor('faq'),
                     'status' => 'active'
                 ]],
-            'testimonies' => $this->users->testimonies()
         ];
 
         $this->view->render($response, 'pages/home/faq.html', $data);
@@ -167,7 +199,7 @@ final class HomeController extends BaseController
 
     public function listofDegree(Request $request, Response $response, $args)
     {
-        $degree = $this->degree->findAll(['fldDegreeId', 'fldDegreeName']);
+        $degree = $this->degree->findAllGroup(['fldDegreeId', 'fldDegreeName']);
 
         $data = [];
         foreach($degree as $row) {

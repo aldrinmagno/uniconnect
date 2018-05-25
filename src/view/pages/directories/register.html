@@ -3,90 +3,97 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block jumbotron %}
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col">
+            <h2>
+                <a href="{{ path_for('home') }}">
+                    <img data-src="/assets/uploads/images/logo.png" alt="UniConnect" class="logo">
+                </a>
+            </h2>
+            <hr>     
+        </div>
+                     
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col"></div>
         <div class="col-md-9">
-            <div class="login">
-                <div class="row no-gutters">
-                    <div class="col">
-                        <div class="jumbotron">
-                            <h2>
-                                <a href="{{ path_for('university', {country:country.fldCountrySlug, uni:uni.fldUniSlug }) }}" class="btn btn-light"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a> 
-                                <a href="{{ path_for('home') }}">UniConnect</a>
-                            </h2>       <hr>
-                            <h4>Apply to {{ uni.fldUniName }}</h4>
-                            <p>
-                                {{ uni.fldUniDescription|slice(0, 190) }}... <a href="{{ path_for('university', {country:country.fldCountrySlug, uni:uni.fldUniSlug }) }}">read more</a>
-                            </p>   
-                        </div>
-                    </div>
-                    <div class="col">
-                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Register</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content border" id="myTabContent">
-                            <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <form class="container" id="login">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <br>
-                                                <label for="login-email">Email address</label>
-                                                <input type="email" class="form-control" id="login-email" name="login-email" aria-describedby="emailHelp" placeholder="Enter email" required>
-                                                <div class="valid-feedback">Nice! You got this one!</div>
-                                                <div class="invalid-feedback">Email is needed.</div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="login-password">Password</label>
-                                                <input type="password" class="form-control" id="login-password" name="login-password" placeholder="Password" required>
-                                                <div class="valid-feedback">Will keep this password a secret.</div>
-                                                <div class="invalid-feedback">Password is needed.</div>
-                                            </div>
-                                            <button type="button" class="btn" id="btnLogin">Login</button>
-                                            <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal">forgot password</a>
-                                            <hr>
-                                            <button type="button" class="btn btn-block" id="btnLoginWithFB"><i class="fab fa-facebook-square"></i> Login with facebook</button>
-                                            <br>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <form class="container" id="registration" novalidate>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <br>
-                                                <label for="register-email">Email address</label>
-                                                <input type="email" class="form-control" id="register-email" name="register-email" aria-describedby="emailHelp" placeholder="Enter email" required>
-                                                <div class="valid-feedback">Nice! You got this one!</div>
-                                                <div class="invalid-feedback">Email is needed.</div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="register-password">Password</label>
-                                                <input type="password" class="form-control" id="register-password" name="register-password" placeholder="Password" required>
-                                                <div class="valid-feedback">Will keep this password a secret.</div>
-                                                <div class="invalid-feedback">Password is needed.</div>
-                                            </div>
-                                            <button type="button" class="btn" id="btnRegister">Register</button>
-                                            <input type="hidden" id="register-uni" name="register-uni" value="{{ uni.fldUniId }}">
-                                             
-                                            <hr>
-                                            <button type="button" class="btn btn-block" id="btnRegisterWithFB"><i class="fab fa-facebook-square"></i> Register with facebook</button>
-                                            <br>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+            <br>
+            <button type="button" class="btn btn-block btn-primary" id="btnLoginWithFB">
+                <i class="fab fa-facebook-square"></i> Register with facebook
+            </button>
+            <br>  
+            <div class="row">
+                <div class="col">
+                    <hr>
+                </div>
+                <div class="col-md-1">
+                   <b>or</b>
+                </div>
+                <div class="col">
+                    <hr>
+                </div>
+            </div> 
+            <br>
+            <div class="row no-gutters">
+                <div class="col-lg-6 col-md-12">
+                    <a href="{{ path_for('university', {country:country.fldCountrySlug, uni:uni.fldUniSlug }) }}" class="btn btn-light btn-block">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i> Back to {{ uni.fldUniName }}
+                    </a> 
+                    <div class="white-transparent-register">
+                        <h4>Apply to {{ uni.fldUniName }}</h4>
+                        <p>
+                            {{ uni.fldUniDescription|slice(0, 190) }}... <a href="{{ path_for('university', {country:country.fldCountrySlug, uni:uni.fldUniSlug }) }}">read more</a>
+                        </p>   
                     </div>
                 </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="tab-content border" id="myTabContent">
+                        <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <form class="container" id="registration" novalidate>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <br>
+                                            <label for="register-email">Email address</label>
+                                            <input type="email" class="form-control" id="register-email" name="register-email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                                            <div class="valid-feedback">Nice! You got this one!</div>
+                                            <div class="invalid-feedback">Email is needed.</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="register-password">Password</label>
+                                            <input type="password" class="form-control" id="register-password" name="register-password" placeholder="Password" required>
+                                            <div class="valid-feedback">Will keep this password a secret.</div>
+                                            <div class="invalid-feedback">Password is needed.</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="register-password">Confirm Password</label>
+                                            <input type="password" class="form-control" id="register-password" name="register-password" placeholder="Password" required>
+                                            <div class="valid-feedback">Will keep this password a secret.</div>
+                                            <div class="invalid-feedback">Password is needed.</div>
+                                        </div>
+                                        <input type="hidden" id="register-uni" name="register-uni" value="{{ uni.fldUniId }}">
+                                        <br>
+                                        <br>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>           
+                </div>
+                <div class="col-md-12 text-center">
+                    <br>
+                    <small>
+                        If you click "Register with facebook" and are <br> not a UniConnect user, you will be registered and you agree to <br> <a href="" class="text-warning">UniConnect's Terms & Conditions</a> and <a href="" class="text-warning">Privacy Policy</a>.
+                    </small>
+                    <br><br>
+                    <button type="button" class="btn btn-block btn-warning" id="btnRegister"><b>Complete Registration!</b></button>
+                    <br>
+                    Already have an account? <a href="{{ path_for('login') }}" class="text-warning">Log in</a>
+                </div>
+                
             </div>
         </div>
         <div class="col"></div>

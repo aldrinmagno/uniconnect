@@ -166,8 +166,18 @@ final class ProfileController extends BaseController
         $apply = $this->useruni->findBy(['*'], 'tblUsers_fldUserId = :id', ['id' => $userInfo['fldUserId']]);
         $uni = $this->uni->findBy(['*'], 'fldUniId = :id', ['id' => $apply['tblUni_fldUniId']]);
 
-        $uniRequirements = $this->requirement->findAllBy(['*'], 'tblUni_fldUniId = :id AND fldRequirementType = "uni"', ['id' => $uni['fldUniId']]);
-        $visaRequirements = $this->requirement->findAllBy(['*'], 'tblUni_fldUniId = :id AND fldRequirementType = "visa"', ['id' => $uni['fldUniId']]);
+        $docs = ['Step 1 Uni',
+                'Step 2 Uni',
+                'Step 2 Doc',
+                'Step 3 Uni',
+                'Step 4 Uni',
+                'Step 4 Doc',
+                'Step 5 Uni',
+                'Step 6 Uni',
+                'Step 6 Doc'];
+
+        $uniRequirements = $this->requirement->findAllBy(['*'], 'tblUni_fldUniId = :id AND fldRequirementType IN (:docs)', ['id' => $uni['fldUniId'], 'docs' => $docs]);
+        $visaRequirements = $this->requirement->findAllBy(['*'], 'tblUni_fldUniId = :id AND fldRequirementType = "Visa"', ['id' => $uni['fldUniId']]);
    
         $uniChecked = $this->checklist->findAllBy(['*'], 'fldCheckListUserId = :id', ['id' => $user['id']]);
 
@@ -219,7 +229,17 @@ final class ProfileController extends BaseController
 
         $data = [
             'title' => "Connect with other students",      
-            'testimonies' => $this->users->students(),
+            'testimonies' =>  $this->testimony->homePage([
+                'fldUniLogo AS image', 
+                'CONCAT(fldUserFName, " ", fldUserLName) AS title', 
+                'fldTestimony AS description',
+                'fldUniName',
+                'fldUniSlug',
+                'fldCountrySlug',
+                'fldUserMobile',
+                'fldUserEmail'
+            ], 'fldTestimonyDeleted = :del AND fldTestimoneyUniId = :uni', 
+            ['del' => 0, 'uni' => $uni['fldUniId']]),
             'degree' => $apply['fldDegreeId'],
         ];
 
@@ -264,11 +284,23 @@ final class ProfileController extends BaseController
         }
         
         $data = [
-            'title' => "Your Selected University",
-            'uni' => $uni,
+            'title' => "Your Selected University", 
             'user' => $userInfo,
-            'country' => $country,
+            'uni' => $uni,
             'degree' => $apply['fldDegreeId'],
+            'country' => $country,
+            'degrees' => $degree,
+            'testimonies' => $this->testimony->homePage([
+                'fldUniLogo AS image', 
+                'CONCAT(fldUserFName, " ", fldUserLName) AS title', 
+                'fldTestimony AS description',
+                'fldUniName',
+                'fldUniSlug',
+                'fldCountrySlug'
+            ], 'fldTestimonyDeleted = :del AND fldTestimoneyUniId = :uni', 
+            ['del' => 0, 'uni' => $uni['fldUniId']]),
+            'visaReq' => $this->requirement->visaReq(),
+            'uniReq' => $this->requirement->uni($uni['fldUniId'])
         ];
 
         $this->view->render($response, 'pages/profile/selected-uni.html', $data);

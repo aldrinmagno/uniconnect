@@ -2,31 +2,23 @@
 
 {% block title %} {{ title }} {% endblock %}
 
-{% block breadcrumbs %}
-{% include 'common/breadcrumbs.html' %}
-{% endblock %}
-
 {% block section3 %}
 <div class="container">
     {% include 'common/breadcrumbs.html' %}
     <div class="row">
         <div class="col-md-3">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" class="img-fluid" alt="">
+            <img data-src="/assets/uploads/images/{{ creators.fldUserDisplayImage }}" class="img-fluid" alt="{{ creators.fldUserFName }} {{ creators.fldUserLName }}">
             <br><br>
-            Email: <strong>aldrinmagno@gmail.com</strong>  
-            Phone: <strong>+61459812312</strong>
+            Email: <strong>{{ creators.fldUserEmail }}</strong>  
+            Phone: <strong>{{ creators.fldUserMobile }}</strong>
         </div>
         <div class="col">
             <h4>
-                Aldrin Magno <small>Web Developer</small>
+                {{ creators.fldUserFName }} {{ creators.fldUserLName }} <br> <small>{{ creators.tblUserTitle }}</small>
             </h4>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores facilis ullam ipsum soluta minus accusamus. In necessitatibus assumenda laudantium expedita hic neque fuga corrupti quidem eius fugiat. Quisquam, ut assumenda.
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores facilis ullam ipsum soluta minus accusamus. In necessitatibus assumenda laudantium expedita hic neque fuga corrupti quidem eius fugiat. Quisquam, ut assumenda.
-            </p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores facilis ullam ipsum soluta minus accusamus. In necessitatibus assumenda laudantium expedita hic neque fuga corrupti quidem eius fugiat. Quisquam, ut assumenda.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores facilis ullam ipsum soluta minus accusamus. In necessitatibus assumenda laudantium expedita hic neque fuga corrupti quidem eius fugiat. Quisquam, ut assumenda.</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores facilis ullam ipsum soluta minus accusamus. In necessitatibus assumenda laudantium expedita hic neque fuga corrupti quidem eius fugiat. Quisquam, ut assumenda.</p>
+            <article>
+                {{ creators.fldUserDescription|raw }}
+            </article>
         </div>
     </div>
 </div>  

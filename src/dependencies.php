@@ -161,3 +161,9 @@ $container['useruni'] = function ($c) {
 $container['checklist'] = function ($c) {
     return new Src\Model\ChecklistModel($c);
 };
+$container['testimony'] = function ($c) {
+    return new Src\Model\TestimoniesModel($c);
+};
+$container['careers'] = function ($c) {
+    return new Src\Model\CareerModel($c);
+};

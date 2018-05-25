@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,11 +8,11 @@
     </head>
     <body data-spy="scroll" data-target="#navbar-example3" data-offset="70">
         <section class="container-fluid">
-            <div class="row no-gutters">
-                <div class="col-md-2 border-right">
+            <div class="row">
+                <div class="col-lg-2 col-md-12" id="side-menu">
                     {% block sidebar %}{% endblock %}
                 </div>
-                <div class="col-md-10">
+                <div class="col">
                     <section>
                         {% block topnav %}{% endblock %}
                     </section>

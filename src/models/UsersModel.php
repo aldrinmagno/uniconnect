@@ -193,28 +193,6 @@ class UsersModel
         return $this->pdo->fetchOne($sth, $bind);
     }
 
-    public function topUni() 
-    {
-        return [
-            [
-                'name' => 'University of Oxford',
-                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ratioesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
-            ],
-            [
-                'name' => 'University of Cambridge',
-                'description' => "Lorem ccusamus deserunt excepturi asperiores dolorem praesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
-            ],
-            [
-                'name' => 'Harvard University',
-                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temp asperiores dolorem praesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
-            ],
-            [
-                'name' => 'Stanford University',
-                'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temppturi asperiores dolorem praesentium odio voluptatem, error autem atque, voluptates magni, quibusdam nobis quasi qui fugit blanditiis enim?<a href='#'>@oxford</a><a href='#'>#england</a><br><time datetime='2016-1-1'>11:09 PM - 1 Jan 2016</time>",
-            ]
-        ];
-    }
-
     public function testimonies() 
     {
         return [

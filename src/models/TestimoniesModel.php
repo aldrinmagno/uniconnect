@@ -5,7 +5,7 @@ namespace Src\Model;
 use Aura\SqlQuery\QueryFactory;
 use Slim\Container;
 
-class RequirementsModel
+class TestimoniesModel
 {
 	protected $table;
     protected $id;
@@ -22,8 +22,8 @@ class RequirementsModel
 	{
 		$this->pdo = $c->get('db');
 
-        $this->table = 'tblRequirements';
-        $this->id = 'fldRequirementId';
+        $this->table = 'tblTestimonies';
+        $this->id = 'fldTestimonyId';
 
 		$this->query_factory = new QueryFactory('mysql');
 	}
@@ -90,6 +90,24 @@ class RequirementsModel
 		$stm = $this->select->getStatement();
 
 		return $this->pdo->fetchAll($stm, $bind);
+    }
+
+    // Locate all file with where
+    public function homePage($select = [], $where, $bind)
+    {
+        $this->select = $this->query_factory->newSelect();
+		$this->select
+			->cols($select)
+            ->where($where)
+            ->limit(40)
+            ->join('LEFT', 'tblUsers', 'fldUserId = fldTestimonyUserId')
+            ->join('LEFT', 'tblUni', 'fldUniId = fldTestimoneyUniId') 	 
+            ->join('LEFT', 'tblCountry', 'fldCountryId = tblCountry_fldCountryId') 	  
+			->from($this->table);
+
+		$stm = $this->select->getStatement();
+
+    	return $this->pdo->fetchAll($stm, $bind);
     }
 
     // add new data
@@ -171,66 +189,5 @@ class RequirementsModel
         $sth = $this->select->getStatement();
 
         return $this->pdo->fetchOne($sth, $bind);
-    }
-
-    public function visa($id)
-    {
-        $this->select = $this->query_factory->newSelect();
-		$this->select
-			->cols($select)
-			->where($where)
-			->from($this->table);
-
-		$stm = $this->select->getStatement();
-
-		return $this->pdo->fetchAll($stm, $bind);
-    }
-
-    public function uni($id)
-    {
-        $this->select = $this->query_factory->newSelect();
-		$this->select
-			->cols(['*'])
-            ->where('fldRequirementType IN (:docs)')
-            ->where('tblUni_fldUniId = :id')
-			->from($this->table);
-
-        $stm = $this->select->getStatement();
-        
-        $bind = [
-            'docs' => [
-                'Step 1 Uni',
-                'Step 2 Uni',
-                'Step 2 Doc',
-                'Step 3 Uni',
-                'Step 4 Uni',
-                'Step 4 Doc',
-                'Step 5 Uni',
-                'Step 6 Uni',
-                'Step 6 Doc'
-            ],
-            'id' => $id
-        ];
-
-		return $this->pdo->fetchAll($stm, $bind);
-    }
-
-    public function visaReq()
-    {
-        $this->select = $this->query_factory->newSelect();
-		$this->select
-			->cols(['*'])
-            ->where('fldRequirementType IN (:docs)')
-          	->from($this->table);
-
-        $stm = $this->select->getStatement();
-        
-        $bind = [
-            'docs' => [
-                'Visa',
-            ]
-        ];
-
-		return $this->pdo->fetchAll($stm, $bind);
     }
 }

@@ -78,6 +78,20 @@ class DegreeModel
 		return $result;
     }
 
+    // locate all file
+    public function findAllGroup($select = [])
+    {
+        $this->select = $this->query_factory->newSelect();
+		$this->select
+            ->cols($select)
+     		->from($this->table);
+
+		$stm = $this->select->getStatement();
+
+        $result = $this->pdo->fetchAll($stm);
+		return $result;
+    }
+
     // Locate all file with where
     public function findAllBy($select = [], $where, $bind)
     {
@@ -85,6 +99,20 @@ class DegreeModel
 		$this->select
 			->cols($select)
 			->where($where)
+			->from($this->table);
+
+		$stm = $this->select->getStatement();
+
+		return $this->pdo->fetchAll($stm, $bind);
+    }
+
+    public function findAllByLimit($select = [], $where, $bind)
+    {
+        $this->select = $this->query_factory->newSelect();
+		$this->select
+			->cols($select)
+            ->where($where)
+            ->limit(3)
 			->from($this->table);
 
 		$stm = $this->select->getStatement();

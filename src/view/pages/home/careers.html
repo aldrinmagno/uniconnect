@@ -1,0 +1,125 @@
+{% extends "/templates/common.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block hero %}
+<div class="main-background-career" style="background-image:url('/assets/uploads/images/j-16.jpg');">
+    <br>
+    <div class="container">
+        {% include 'common/breadcrumbs.html' %}
+    </div>
+</div>
+<div class="container main-content">
+    <br>
+    <div class="white-transparent career-content">
+        <div class="row text-white">
+            <div class="col-lg-3 col-md-4">
+                <img data-src="/assets/uploads/images/{{ careers.fldCareerImage }}" class="rounded rounded-circle" alt="{{ careers.fldCareerName }}">
+            </div>
+            <div class="col">
+                <h2>{{ careers.fldCareerName }}</h2>
+                <p>
+                    {{ careers.fldCareerDescription }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block section1 %}
+<div class="container">
+    <br><br>
+    <div class="row">
+        <div class="col-lg-3 col-md-4">
+            <nav id="navbar-example3" class="navbar">
+                <nav class="nav nav-pills flex-column">
+                    <a class="nav-link" href="#item-1">Description</a>
+                    <a class="nav-link" href="#item-2">Responsibilities</a>
+                    <a class="nav-link" href="#item-3">Skills</a>
+                </nav>
+            </nav>
+        </div>
+        <div class="col">
+            <div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
+                <h3 id="item-1">Description</h3>
+                <p>{{ careers.fldCareerDescription|raw }}</p><br><br>
+                <hr><br><br>
+                <h3 id="item-2">Responsibilities</h3>
+                <p>{{ careers.fldCareerResponsibilities|raw }}</p><br><br>
+                <hr><br><br>
+                <h3 id="item-3">Skills</h3>
+                <p>{{ careers.fldCareerSkills|raw }}</p>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+</div>
+{% endblock %}
+
+{% block section2 %}
+<div>
+    <div class="container">
+            <br><br>
+      <div class="row">
+          <div class="top-uni-text">
+                <h3 class="h3">
+                    How <span class="text-warning">UniConnect</span> Can Help You Pick a Career?
+                </h3>
+                <h4 class="text-muted text-left">
+                    est iusto dolorum magnam officia lores commodi eveniet laudantium tempore? Blanditiis eligendi velit corporis in.
+                </h4>
+            </div>
+            <div class="row">
+                <div class="card-columns">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                24/7 Active Chatbot Support
+                            </h4>
+                            <article class="mb-0 card-text">
+                                <p class="text-justify">
+                                    A chatbot is a software system, which can interact or “chat” with a human user in natural in universal English language. Chatbots can help inform users or help them in fulfilling tasks.
+                                </p>
+                                <br>
+                                <br>
+                                <a href="{{ path_for('services') }}" class="btn btn-block btn-warning">Read More</a>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Comprehensive Australian and New Zealand List Universities
+                            </h4>
+                            <article class="mb-0 card-text">
+                                <p class="text-justify">
+                                    Compare universities around Australia and New Zealand with our interactive university search tool. Information available at this time is for the two countries mentioned... <br>
+                                </p>
+                                <br><br>
+                                <a href="{{ path_for('services') }}" class="btn btn-block btn-warning">Read More</a>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Connection Building Capabilities
+                            </h4>
+                            <article class="mb-0 card-text">
+                                <p class="text-justify">
+                                    UniConnect can form the virtual connection with other uni students who have chosen the same course in the same university. It establishes the connection to others...
+                                </p>
+                                <br><br>
+                                <a href="{{ path_for('services') }}" class="btn btn-block btn-warning">Read More</a>
+                            </article>
+                        </div>
+                    </div>
+                </div> 
+                <a href="https://www.facebook.com/UniConnect-431878487273437/" target="_blank" class="btn btn-warning btn-lg btn-block"><i class="fab fa-facebook-messenger"></i></a>
+            </div>          
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+{% endblock %}

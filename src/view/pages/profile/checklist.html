@@ -3,25 +3,16 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block topnav %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <span class="navbar-text">
-                Connect with us: 
-            </span>
-            <li class="nav-item">
-                <a class="nav-link" href="https://www.facebook.com/UniConnect-431878487273437/"><i class="fab fa-facebook-messenger"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fab fa-weixin"></i></a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-        </form>
+<div class="container">
+    <div class="navbar" id="side-bar-top">
+        <nav class="navbar navbar-expand-lg">  
+            <a class="navbar-brand" href="">
+                <img data-src="/assets/uploads/images/logo.png" alt="UniConnect" class="logo">
+            </a>
+            <h2>UniConnect - <small>"Helping internationl student get to the right university"</small></h2>
+        </nav>
     </div>
-</nav>
+</div>
 {% endblock %}
 
 {% block sidebar %}
@@ -29,22 +20,21 @@
 {% endblock %}
 
 {% block maincontent %}
-<div class="container-fluid">
+<div class="container">
     <br>
     <div class="row">
         <div class="col-md-12">
-            <h3>Checklist</h3>
             <p>The journey of a thousand miles begins with one step. - <b>Lao Tzu</b></p>
 
             <small>Over all progress bar</small> 
             <div class="progress" style="height: 45px;">
-                <div class="progress-bar" role="progressbar" style="width: {{ uniPer }}%" aria-valuenow="{{ uniPer }}" aria-valuemin="0" aria-valuemax="100">School requirements {{ uniPer }}%</div>
+                <div class="progress-bar bg-warning" role="progressbar" style="width: {{ uniPer }}%" aria-valuenow="{{ uniPer }}" aria-valuemin="0" aria-valuemax="100">School requirements {{ uniPer }}%</div>
                 <div class="progress-bar bg-success" role="progressbar" style="width: {{ visaPer }}%" aria-valuenow="{{ visaPer }}" aria-valuemin="0" aria-valuemax="100">Visa requirements {{ visaPer }}%</div>
             </div>
             <br>
         </div>
         <div class="col-md-12">
-            <ul class="nav nav-pills nav-tabs nav-fill" id="pills-tab" role="tablist">
+            <ul class="nav nav-tabs" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">School Requirements</a>
                 </li>
@@ -57,9 +47,9 @@
                     <table class="table table-hover table-strip">
                         <tfoot>
                             <tr>
-                                <td colspan="3">
+                                <td colspan="2">
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: {{ uniPer * 2 }}%" aria-valuenow="{{ uniPer * 2 }}" aria-valuemin="0" aria-valuemax="100">{{ uniPer * 2 }}%</div>
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ uniPer * 2 }}%" aria-valuenow="{{ uniPer * 2 }}" aria-valuemin="0" aria-valuemax="100">{{ uniPer * 2 }}%</div>
                                     </div>
                                 </td>
                             </tr>
@@ -68,50 +58,23 @@
                             <tr>
                                 <th>Document</th>
                                 <th>Description</th>
-                                <th>Sample Document</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for row in uniReq.req %}
-                                {% for r in checked %}
-                                    {% if row.fldRequirementId == r.fldCheckListRequirementId and r.fldCheckListStatus == 1 %}      
+                                 
                                     <tr>
                                         <td>
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input update-checklist" id="customCheck{{ row.fldRequirementId }}" value="{{ row.fldRequirementId }}" checked>
-                                                
+                                                <input type="checkbox" class="custom-control-input update-checklist" id="customCheck{{ row.fldRequirementId }}" value="{{ row.fldRequirementId }}" {% for r in checked %}   {% if row.fldRequirementId == r.fldCheckListRequirementId and r.fldCheckListStatus == 1 %} checked {% endif %} {% endfor %} >
+                                                    
                                                 <label class="custom-control-label" for="customCheck{{ row.fldRequirementId }}">{{ row.fldRequirementDocument }}</label>
                                             </div>
                                         </td>
                                         <td>
                                             {{ row.fldRequirementDescription }}
                                         </td>
-                                        <td>
-                                            <a href="{{ row.fldRequirementSample }}" target="_blank">
-                                                {{ row.fldRequirementDocument }}
-                                            </a>
-                                        </td>
                                     </tr>
-                                    {% elseif  row.fldRequirementId == r.fldCheckListRequirementId and r.fldCheckListStatus == 0 %}
-                                    <tr>
-                                            <td>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input update-checklist" id="customCheck{{ row.fldRequirementId }}" value="{{ row.fldRequirementId }}">
-                                                    
-                                                    <label class="custom-control-label" for="customCheck{{ row.fldRequirementId }}">{{ row.fldRequirementDocument }}</label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                {{ row.fldRequirementDescription }}
-                                            </td>
-                                            <td>
-                                                <a href="{{ row.fldRequirementSample }}" target="_blank">
-                                                    {{ row.fldRequirementDocument }}
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    {% endif %}
-                                {% endfor %}
                             {% endfor %}
                         </tbody>
                     </table>
@@ -120,9 +83,9 @@
                     <table class="table table-hover table-strip">
                         <tfoot>
                             <tr>
-                                <td colspan="3">
+                                <td colspan="2">
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: {{ visaPer * 2 }}%" aria-valuenow="{{ visaPer * 2 }}" aria-valuemin="0" aria-valuemax="100">{{ visaPer * 2 }}%</div>
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ visaPer * 2 }}%" aria-valuenow="{{ visaPer * 2 }}" aria-valuemin="0" aria-valuemax="100">{{ visaPer * 2 }}%</div>
                                     </div>
                                 </td>
                             </tr>
@@ -131,51 +94,25 @@
                             <tr>
                                 <th>Document</th>
                                 <th>Description</th>
-                                <th>Sample Document</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for row in visaReq.req %}
-                                {% for r in checked %}
-                                {% if row.fldRequirementId == r.fldCheckListRequirementId and r.fldCheckListStatus == 1 %}      
+                                 
                                     <tr>
                                         <td>
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input update-checklist" id="customCheck{{ row.fldRequirementId }}" value="{{ row.fldRequirementId }}" checked>
-                                                
+                                                <input type="checkbox" class="custom-control-input update-checklist" id="customCheck{{ row.fldRequirementId }}" value="{{ row.fldRequirementId }}" {% for r in checked %}   {% if row.fldRequirementId == r.fldCheckListRequirementId and r.fldCheckListStatus == 1 %} checked {% endif %} {% endfor %} >
+                                                    
                                                 <label class="custom-control-label" for="customCheck{{ row.fldRequirementId }}">{{ row.fldRequirementDocument }}</label>
                                             </div>
                                         </td>
                                         <td>
                                             {{ row.fldRequirementDescription }}
                                         </td>
-                                        <td>
-                                            <a href="{{ row.fldRequirementSample }}" target="_blank">
-                                                {{ row.fldRequirementDocument }}
-                                            </a>
-                                        </td>
                                     </tr>
-                                    {% elseif  row.fldRequirementId == r.fldCheckListRequirementId and r.fldCheckListStatus == 0 %}
-                                    <tr>
-                                            <td>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input update-checklist" id="customCheck{{ row.fldRequirementId }}" value="{{ row.fldRequirementId }}">
-                                                    
-                                                    <label class="custom-control-label" for="customCheck{{ row.fldRequirementId }}">{{ row.fldRequirementDocument }}</label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                {{ row.fldRequirementDescription }}
-                                            </td>
-                                            <td>
-                                                <a href="{{ row.fldRequirementSample }}" target="_blank">
-                                                    {{ row.fldRequirementDocument }}
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    {% endif %}
-                                {% endfor %}
                             {% endfor %}
+                           
                         </tbody>
                     </table>
                 </div>

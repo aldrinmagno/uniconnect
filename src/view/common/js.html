@@ -1,7 +1,19 @@
+<div id="chabots">
+    <ul>
+        <li class="chat-icon" data-toggle="popover" data-placement="left" data-content="Chat with us in messenger">
+            <a href="https://www.facebook.com/UniConnect-431878487273437/" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+        </li>
+    
+    </ul>
+</div>
+
 {# jquery #}
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 {# bootstrap #}
-<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+{# lazy load #}
+<script src="/assets/scripts/main.min.js"></script>
+
 {# fontawesome #}
 <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 {# select 2 #}
@@ -9,239 +21,6 @@
 <script src="/node_modules/select2/dist/js/select2.min.js"></script>
 {# swal #}
 <script src="/node_modules/sweetalert/dist/sweetalert.min.js"></script>
+{# lazy load #}
+<script src="/node_modules/lazyloadxt/dist/jquery.lazyloadxt.min.js"></script>
 
-<script>
-
-    $("#forgot-password").click(function(event) {
-        var form = $("#forgot-form")
-
-        if (form[0].checkValidity() === false) {
-            event.preventDefault()
-            event.stopPropagation()
-        } else {
-            swal('Please check your email', 'Instructions to reset your password has been sent to your email', 'success');
-            $('#exampleModal').modal('hide');
-        }
-
-        form.addClass('was-validated');
-    });
-
-    $("#btnRegister").click(function(event) {
-        // Fetch form to apply custom Bootstrap validation
-        var form = $("#registration")
-
-        if (form[0].checkValidity() === false) {
-            event.preventDefault()
-            event.stopPropagation()
-        } else {
-        
-            var input = {
-                email: $("#register-email").val(),
-                password: $("#register-password").val(),
-                uni: $("#register-uni").val()
-            };
-        
-            $.post( '/register', input)
-                .done(function( data ) {
-                    obj = JSON.parse(data);
-                    
-                    if (obj.status == "success") {
-                        swal('Registration was successful', obj.description, 'success');
-
-                        window.location.replace("/profile");
-                    } else if (obj.status == "failed") {
-                        swal('Error', obj.description, 'warning');
-                    }    
-                });
-        }
-       
-        form.addClass('was-validated');
-    });
-
-    $(".update-checklist").change(function() {
-        var check = 0;
-
-        if($(this).is(":checked")) {
-            check = 1;
-        }
-
-        var input = {
-            id: $(this).val(),
-            check: check
-        }
-
-        console.log(input);
-
-        $.post('/profile/update-checklist', input)
-            .done(function( data ) {
-                obj = JSON.parse(data);
-         
-                
-            });
-
-    });
-
-    $("#btnSaveProfile").click(function(event) {
-        var form = $("#first-profile")
-
-        if (form[0].checkValidity() === false) {
-            event.preventDefault()
-            event.stopPropagation()
-        } else {
-            var degree = $("input[name='degree']:checked").val();
-
-            var input = {
-                txtFName: $("#txtFName").val(),
-                txtLName: $("#txtLName").val(),
-                txtPhone: $("#txtPhone").val(),
-                txtDOB: $("#txtDOB").val(),
-                txtStreet: $("#txtStreet").val(),
-                txtSuburb: $("#txtSuburb").val(),
-                txtState: $("#txtState").val(),
-                txtPostcode: $("#txtPostcode").val(),
-                degree: degree,
-            };
-
-            $.post('/profile/update-profile', input)
-                .done(function( data ) {
-                    obj = JSON.parse(data);
-                    
-                    if (obj.status == "success") {
-                        swal('Profile was updated!', obj.description, 'success');
-                        window.location.replace("/profile");
-
-                    } else if (obj.status == "failed") {
-                        swal('Error', obj.description, 'warning');
-                    }    
-                });
-        }
-       
-        form.addClass('was-validated');
-    });
-
-    $("#btnLogin").click(function(event) {
-
-    // Fetch form to apply custom Bootstrap validation
-        var form = $("#login")
-
-        if (form[0].checkValidity() === false) {
-            event.preventDefault()
-            event.stopPropagation()
-        } else {
-        
-            var input = {
-                email: $("#login-email").val(),
-                password: $("#login-password").val(),
-            };
-        
-            $.post( '/login', input)
-                .done(function( data ) {
-                    obj = JSON.parse(data);
-                    
-                    if (obj.status == "success") {
-                        swal('Login was successful', obj.description, 'success');
-                        window.location.replace("/profile");
-
-                    } else if (obj.status == "failed") {
-                        swal('Error', obj.description, 'warning');
-                    }    
-                });
-        }
-       
-        form.addClass('was-validated');
-
-    });
-
-
-
-    $('#location').select2({
-        placeholder: "Country you want to study",
-        theme: "bootstrap",
-        ajax: {
-            url: '/list-of-locations',
-            dataType: 'json'
-            // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
-        }
-    });
-
-    $('#country').select2({
-        placeholder: "Country you want to study",
-        theme: "bootstrap",
-        ajax: {
-            url: '/list-of-locations',
-            dataType: 'json'
-            // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
-        }
-    });
-
-    $('#degree').select2({
-        placeholder: "Select Degree",
-        theme: "bootstrap",
-        ajax: {
-            url: '/list-of-degree',
-            dataType: 'json'
-            // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
-        }
-    });
-
-    $('#Alocation').select2({
-        placeholder: "Country you want to study",
-        theme: "bootstrap",
-        ajax: {
-            url: '/list-of-locations',
-            dataType: 'json'
-            // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
-        }
-    });
-
-    $('#location').change( function() {
-        $("#load").addClass("loading");
-
-        if($("#location").val() == 1) window.location.replace("/australia");
-        else if($("#location").val() == 2) window.location.replace("/new-zealand");
-      
-    });
-
-    $('#btnSearch').click( function() {
-        $("#load").addClass("loading");
-
-        if($("#country").val()) {
-            if($("#country").val() == 1) window.location.replace("/australia");
-            else if($("#country").val() == 2) window.location.replace("/new-zealand");
-        } else {
-            swal('Country is a required field', 'You must atleast select a country you want to study too.', 'warning');
-            $("#load").removeClass("loading");
-        }
-        
-    });
-
-    $('.search').click( function() {
-        $("#load").addClass("loading");
-    });
-
-    $('.btnLogin').click( function() {
-        $("#load").addClass("loading");
-
-        window.location.replace("/profile");
-    });
-
-    $(window).on("scroll", function() {
-        if (document.body.scrollTop > 550 || document.documentElement.scrollTop > 550) {
-            $("#btnApply").addClass('fixed-top');
-            $("#btnApply").css('width',  $("#btnApply").next().width());
-            $("#btnApply").css('margin', 'auto');
-
-        } else {
-            $("#btnApply").removeClass('fixed-top');
-        }
-    });
-    
-    $("#btnApply").click(function() {
-        window.location.replace("/login");
-    });
-
-    var pathname = window.location.pathname;
-	$('.nav > li > a[href="'+pathname+'"]').addClass('active');
-
-    $('.nav > a[href="'+pathname+'"]').addClass('active');
-</script>

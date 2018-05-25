@@ -3,25 +3,16 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block topnav %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <span class="navbar-text">
-                Connect with us: 
-            </span>
-            <li class="nav-item">
-                <a class="nav-link" href="https://www.facebook.com/UniConnect-431878487273437/"><i class="fab fa-facebook-messenger"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fab fa-weixin"></i></a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-        </form>
+<div class="container">
+    <div class="navbar" id="side-bar-top">
+        <nav class="navbar navbar-expand-lg">  
+            <a class="navbar-brand" href="">
+                <img data-src="/assets/uploads/images/logo.png" alt="UniConnect" class="logo">
+            </a>
+            <h2>UniConnect - <small>"Helping internationl student get to the right university"</small></h2>
+        </nav>
     </div>
-</nav>
+</div>
 {% endblock %}
 
 {% block sidebar %}
@@ -29,54 +20,59 @@
 {% endblock %}
 
 {% block maincontent %}
-<div class="container-fluid">
+<div class="container">
     <br>
     <div class="row">
-        <div class="col-md-12">
-            <h3 class="title">Congratulation! You are now closer in studying at your dream university.</h3>
-        </div>
         {% if degree %}
-        <div class="col-md-6">
-            <div class="jumbotron">
-                <h4>{{ uni.fldUniName }}</h4>
-                {{ uni.fldUniDescription|raw }}
-                <a href="{{ path_for('myuniversity') }}">read more</a>
+        <div class="col-md-8">
+            <h4>{{ uni.fldUniName }}</h4>
+            <div class="row">
+                <div class="col">
+                    <img data-src="/assets/uploads/images/{{ uni.fldUniLogo }}" class="img-fluid" alt="{{ uni.fldUniName }}">
+                </div>
+                <div class="col-md-8">
+                    {{ uni.fldUniDescription|raw }}
+                    <a href="{{ path_for('myuniversity') }}" class="badge badge-warning">read more</a>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>University Requirements</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, ipsa quia! Officiis est maiores nisi, perferendis quisquam totam, quaerat dolorum mollitia rem, veniam dolorem placeat possimus? Nulla earum veritatis cum!</p>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed reprehenderit dicta suscipit ducimus quam consequatur modi cupiditate nisi atque ut nesciunt, eum a aliquam voluptate debitis exercitationem quia itaque perspiciatis.</p>
+                    <a href="{{ path_for('checklist') }}" class="badge badge-warning">read more</a>
+                </div>   
+                <div class="col-md-6">
+                    <h4>Visa Requirements</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, ipsa quia! Officiis est maiores nisi, perferendis quisquam totam, quaerat dolorum mollitia rem, veniam dolorem placeat possimus? Nulla earum veritatis cum!</p>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed reprehenderit dicta suscipit ducimus quam consequatur modi cupiditate nisi atque ut nesciunt, eum a aliquam voluptate debitis exercitationem quia itaque perspiciatis.</p>
+                    <a href="{{ path_for('checklist') }}" class="badge badge-warning">read more</a>
+                </div>   
             </div>
         </div>
-        <div class="col-md-6">
-            <h4>{{ country.fldCountryName }}</h4>
-            {{ country.fldCountryDescription|raw }}
-        </div>   
-        <div class="col-md-6">
-            <h4>Visa Requirements</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, ipsa quia! Officiis est maiores nisi, perferendis quisquam totam, quaerat dolorum mollitia rem, veniam dolorem placeat possimus? Nulla earum veritatis cum!</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed reprehenderit dicta suscipit ducimus quam consequatur modi cupiditate nisi atque ut nesciunt, eum a aliquam voluptate debitis exercitationem quia itaque perspiciatis.</p>
-            <a href="">read more</a>
-        </div>   
-        <div class="col-md-6">
-            <div class="jumbotron">
-                <h4>Pre University Activities</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum similique dolores maxime beatae temporibus, placeat quas odit, laudantium tempora sint error aperiam blanditiis cum hic nobis incidunt exercitationem laboriosam id.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae blanditiis, asperiores sunt adipisci reprehenderit quis explicabo minus eos eveniet accusamus eaque sequi ipsum pariatur animi facilis voluptatibus possimus vitae sed.
-                </p>
-                <a href="">read more</a>
+        <div class="col-md-4">
+            <div class="white-transparent text-white">
+                <h4>{{ country.fldCountryName }}</h4>
+                {% if country.fldCountryName == "Australia" %}
+                <img data-src="/assets/uploads/images/australia.png" class="img-fluid" alt="Australia">
+                {% else %}
+                <img data-src="/assets/uploads/images/australia.png" class="img-fluid" alt="Australia">
+                {% endif %}
+                {{ country.fldCountryDescription|raw }}
+                <a href="" class="text-warning">read more</a>
             </div>
-        </div> 
-        <div class="col-md-12">
-            <div class="jumbotron">
-                <h4>University Life</h4>
-                {{ uni.fldUniLife|raw }}
-            </div>
-        </div> 
+        </div>   
+        
         {% else %} 
         <div class="col-md-12">
-            <h5>Before we get started with your academic journey, we must first need some of your details.</h5>
-            <form class="jumbotron" id="first-profile">
+            <form class="white-transparent text-white" id="first-profile">
                 <div class="form-group row">
                     <div class="col-sm-12">
+                        <h5>Before we get started with your academic journey, we must first need some of your details.</h5>
+                        <br><br>
                         <h5>Personal Information</h5>
                         <hr>
                     </div>
@@ -124,9 +120,9 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <br>
+                        <br><br><br>
                         <h5>Degree's offered by {{ uni.fldUniName }}</h5>
-                        <small class="text-info">Selecting a degree is required to proceed to the next step.</small>
+                        <small class="text-warning">Selecting a degree is required to proceed to the next step.</small>
                         <hr>
                         <div class="card-columns">
                             {% for row in degrees %}
@@ -142,8 +138,14 @@
                                     <label for="radio{{ row.fldDegreeId }}">
                                         <p class="card-text">{{ row.fldDegreeDescription|raw }}</p>
                                         <p class="card-text"><strong>Tuition Fee: </strong> $12,000</p>
-                                        <a href="{{ row.fldDegreeLink }}" target="_blank" class="card-link">Full Details</a>
-                                        <a href="{{ row.fldDegreeStudyPlan }}" target="_blank" class="card-link">Study Plan</a>
+                                        <div class="row">
+                                            <div class="col">
+                                                <a href="{{ row.fldDegreeLink }}" target="_blank" class="card-link btn btn-warning btn-block">Full Details</a>
+                                            </div>
+                                            <div class="col">
+                                                <a href="{{ row.fldDegreeStudyPlan }}" target="_blank" class="card-link btn btn-warning btn-block">Study Plan</a>
+                                            </div>
+                                        </div>                                        
                                     </label>
                                 </div>
                             </div>
@@ -153,7 +155,7 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <button type="button" id="btnSaveProfile" class="btn btn-light">Save</button>
+                        <button type="button" id="btnSaveProfile" class="btn btn-warning btn-block"><b>Complete My Profile!</b></button>
                     </div>
                 </div>
             </form>
@@ -162,4 +164,56 @@
        
     </div>
 </div>
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+          <hr>
+         <div class="top-uni-text text-center">
+           <h3 class="title">
+             International Student Guide
+           </h3>
+              <h4>
+                Be prepared and ready yourself in studying abroad
+              </h4>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="card-columns">
+                  <div class="card">
+                    <img class="card-img-top" data-src="/assets/uploads/images/bookcase-books-bookshelves-256541.jpg" alt="{{ testimony.title }} ">
+                    
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        Pre University Activities
+                      </h4> <br>
+                      <a href="{{ path_for('regularSearch') }}" class="btn btn-outline-warning btn-block"><b>Explore</b></a>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img class="card-img-top" data-src="/assets/uploads/images/adult-blond-blur-789703.jpg" alt="{{ testimony.title }} ">
+                    
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        University Life
+                      </h4> <br>
+                      <a href="{{ path_for('services') }}" class="btn btn-outline-warning btn-block"><b>Read More</b></a>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img class="card-img-top" data-src="/assets/uploads/images/adult-blur-books-261909.jpg" alt="{{ testimony.title }} ">
+                    
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        After Application Support
+                      </h4> <br>
+                      <a href="{{ path_for('faq') }}" class="btn btn-outline-warning btn-block"><b>Read More</b></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>   
+          </div>
+        </div>
+      </div>
 {% endblock %}

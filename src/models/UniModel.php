@@ -181,12 +181,14 @@ class UniModel
             'fldUniLogo as logo',
             'fldCountrySlug as country',
             'fldUniSlug as slug',
+            'fldUniRange as range',
+            'fldUniAddress as address'
         ];
 
         $this->select = $this->query_factory->newSelect();
 		$this->select
             ->cols($select)
-            ->limit(4)
+            ->limit(3)
             ->join('LEFT', 'tblCountry', 'fldCountryId = tblCountry_fldCountryId') 	   
 			->from($this->table);
 
@@ -199,17 +201,20 @@ class UniModel
     public function universities($country) 
     {
         $select = [
-            'fldUniName as title',
+            'fldUniId as id',
+            'fldUniName as name',
             'fldUniDescription as description',
-            'fldUniLogo as image',
+            'fldUniLogo as logo',
             'fldCountrySlug as country',
             'fldUniSlug as slug',
+            'fldUniRange as range',
+            'fldUniAddress as address'
         ];
+
 
         $this->select = $this->query_factory->newSelect();
 		$this->select
             ->cols($select)
-            ->limit(4)
             ->join('LEFT', 'tblCountry', 'fldCountryId = tblCountry_fldCountryId') 	
             ->where('tblCountry_fldCountryId = :id')   
 			->from($this->table);
@@ -219,6 +224,36 @@ class UniModel
         $bind = ['id' => $country];
 
         $result = $this->pdo->fetchAll($stm, $bind);
+		return $result;
+    }
+
+    public function getUniversities($id) 
+    {
+        $select = [
+            'fldUniId as id',
+            'fldUniName as name',
+            'fldUniDescription as description',
+            'fldUniLogo as logo',
+            'fldCountrySlug as country',
+            'fldUniSlug as slug',
+            'fldUniRange as range',
+            'fldUniAddress as address',
+            'fldUniCulture as culture'
+        ];
+
+
+        $this->select = $this->query_factory->newSelect();
+		$this->select
+            ->cols($select)
+            ->join('LEFT', 'tblCountry', 'fldCountryId = tblCountry_fldCountryId') 	
+            ->where('fldUniId = :id')
+			->from($this->table);
+
+        $stm = $this->select->getStatement();
+        
+        $bind = ['id' => $id];
+
+        $result = $this->pdo->fetchOne($stm, $bind);
 		return $result;
     }
 }

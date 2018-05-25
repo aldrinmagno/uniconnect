@@ -29,6 +29,8 @@ class BaseController
     protected $uni;
     protected $useruni;
     protected $checklist;
+    protected $testimony;
+    protected $careers;
   
     // routes
     protected $router;
@@ -55,6 +57,8 @@ class BaseController
         $this->uni = $c->get('uni');
         $this->useruni = $c->get('useruni');
         $this->checklist = $c->get('checklist');
+        $this->testimony = $c->get('testimony');
+        $this->careers = $c->get('careers');
 
         // routes
         $this->router = $c->get('router');

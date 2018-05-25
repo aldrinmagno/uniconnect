@@ -3,25 +3,16 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block topnav %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <span class="navbar-text">
-                Connect with us: 
-            </span>
-            <li class="nav-item">
-                <a class="nav-link" href="https://www.facebook.com/UniConnect-431878487273437/"><i class="fab fa-facebook-messenger"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fab fa-weixin"></i></a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-        </form>
+<div class="container">
+    <div class="navbar" id="side-bar-top">
+        <nav class="navbar navbar-expand-lg">  
+            <a class="navbar-brand" href="">
+                <img data-src="/assets/uploads/images/logo.png" alt="UniConnect" class="logo">
+            </a>
+            <h2>UniConnect - <small>"Helping internationl student get to the right university"</small></h2>
+        </nav>
     </div>
-</nav>
+</div>
 {% endblock %}
 
 {% block sidebar %}
@@ -29,23 +20,22 @@
 {% endblock %}
 
 {% block maincontent %}
-<div class="container-fluid">
+<div class="container">
     <br>
     <div class="row">
-        <div class="col-md-12">
-            <h3>Connect with other students.</h3>
-            <br>
-        </div>
         <div class="col-md-12">
             <div class="card-columns">
             {% for testimony in testimonies %}
                 <div class="card">
-                {% if testimony.image %}
-                    <img class="card-img-top" src="{{ testimony.image }}" alt="Card image cap">
-                {% endif %}
                 {% if testimony.title %}
                     <div class="card-body">
-                        <h5 class="card-title">{{ testimony.title }} <small>@unistudent 30min ageo</small></h5>
+                        <h5 class="card-title">{{ testimony.title }}</h5>
+                        <p class="card-text">
+                            <ul>
+                                <li>mobile: {{ testimony.fldUserMobile }}</li>
+                                <li>email: {{ testimony.fldUserEmail }}</li>
+                            </ul>
+                        </p>
                         <p class="card-text">{{ testimony.description|raw }}</p>
                     </div>
                 {% endif %}

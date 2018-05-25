@@ -1,23 +1,52 @@
-<div class="row">
-    <div class="navbar-light bg-light" id="side-bar-main">
-        <nav class="navbar navbar-expand-lg">  
-            <div class="col-md-12">
-                <a class="navbar-brand" href="#">UniConnect</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                    
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <nav class="nav nav-pills flex-column">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="fix-it-sidebar">
+        <div id="sidebar-main-nav-bar">
+    
+            <button 
+                class="navbar-toggler" 
+                type="button" 
+                data-toggle="collapse" 
+                data-target="#navbarSupportedContent" 
+                aria-controls="navbarSupportedContent" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav nav-pills nav-fill flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" id="brand-sidebar" href="{{ path_for('home') }}">
+                        <img data-src="/assets/uploads/images/logo.png" alt="UniConnect">
+                    </a>
+                </li>
+            
+                <li class="nav-item">
                         <a class="nav-link" href="{{ path_for('myprofile') }}">Dashboard</a>
-                        <a class="nav-link{% if degree %}{% else %} disabled {% endif %}" href="{% if degree %}{{ path_for('checklist') }}{% else %} javascript:void(0) {% endif %}">Checklist</a>
-                        <a class="nav-link{% if degree %}{% else %} disabled {% endif %}" href="{% if degree %}{{ path_for('myuniversity') }}{% else %} javascript:void(0) {% endif %}">My University</a>
-                        <a class="nav-link{% if degree %}{% else %} disabled {% endif %}" href="{% if degree %}{{ path_for('gettingready') }}{% else %} javascript:void(0) {% endif %}">Getting ready for university life</a>
-                        <a class="nav-link{% if degree %}{% else %} disabled {% endif %}" href="{% if degree %}{{ path_for('connect') }}{% else %} javascript:void(0) {% endif %}">Connect with other students!</a>
-                        <a class="nav-link" href="{{ path_for('logout-action') }}">Logout</a>
-                    </nav>            
-                </div>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link{% if degree %}{% else %} disabled {% endif %}" href="{% if degree %}{{ path_for('checklist') }}{% else %} javascript:void(0) {% endif %}">
+                                Checklist</a>
+                </li>       
+                <li class="nav-item">
+                        <a class="nav-link{% if degree %}{% else %} disabled {% endif %}" href="{% if degree %}{{ path_for('myuniversity') }}{% else %} javascript:void(0) {% endif %}">
+                                My University</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link{% if degree %}{% else %} disabled {% endif %}" href="{% if degree %}{{ path_for('gettingready') }}{% else %} javascript:void(0) {% endif %}">
+                                Getting Ready for Uni life</a>        
+                </li>  
+                
+                <li class="nav-item">
+                        <a class="nav-link{% if degree %}{% else %} disabled {% endif %}" href="{% if degree %}{{ path_for('connect') }}{% else %} javascript:void(0) {% endif %}">
+                                Get Connected!</a>
+                </li>  
+                
+                <li class="nav-item">
+                        <a class="nav-link" href="{{ path_for('logout-action') }}">
+                                Logout</a>
+                </li>  
+    
+              </ul>
             </div>
-        </nav>
-    </div>
-</div>
+        </div>
+    </nav>

@@ -3,25 +3,16 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block topnav %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <span class="navbar-text">
-                Connect with us: 
-            </span>
-            <li class="nav-item">
-                <a class="nav-link" href="https://www.facebook.com/UniConnect-431878487273437/"><i class="fab fa-facebook-messenger"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fab fa-weixin"></i></a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-        </form>
+<div class="container">
+    <div class="navbar" id="side-bar-top">
+        <nav class="navbar navbar-expand-lg">  
+            <a class="navbar-brand" href="">
+                <img data-src="/assets/uploads/images/logo.png" alt="UniConnect" class="logo">
+            </a>
+            <h2>UniConnect - <small>"Helping internationl student get to the right university"</small></h2>
+        </nav>
     </div>
-</nav>
+</div>
 {% endblock %}
 
 {% block sidebar %}
@@ -29,332 +20,89 @@
 {% endblock %}
 
 {% block maincontent %}
-<div class="container-fluid">
+<div class="container">
     <br>
     <div class="row">
         <div class="col-md-12">
             <div class="">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <nav id="navbar-example3" class="navbar navbar-light bg-light">
-                            <a class="navbar-brand" href="#">Getting Started at Uni</a>
                             <nav class="nav nav-pills flex-column">
-                              <a class="nav-link" href="#item-1">Item 1</a>
+                              <a class="nav-link" href="#item-1">IELTS Exam</a>
                               <nav class="nav nav-pills flex-column">
-                                <a class="nav-link ml-3 my-1" href="#item-1-1">Item 1-1</a>
-                                <a class="nav-link ml-3 my-1" href="#item-1-2">Item 1-2</a>
+                                <a class="nav-link ml-3 my-1" href="#item-1-1">IELTS Academic or IELTS General Training</a>
                               </nav>
-                              <a class="nav-link" href="#item-2">Item 2</a>
-                              <a class="nav-link" href="#item-3">Item 3</a>
+                              <a class="nav-link" href="#item-2">Gather needed documents for the requirements</a>
                               <nav class="nav nav-pills flex-column">
-                                <a class="nav-link ml-3 my-1" href="#item-3-1">Item 3-1</a>
-                                <a class="nav-link ml-3 my-1" href="#item-3-2">Item 3-2</a>
+                                <a class="nav-link ml-3 my-1" href="#item-2-1">Financial Requirements</a>
+                                <a class="nav-link ml-3 my-1" href="#item-2-2">Offer of Admission</a>
+                                <a class="nav-link ml-3 my-1" href="#item-2-3">Student Visa</a>
+                              </nav>
+                              <a class="nav-link" href="#item-3">Arrange accommodation</a>
+                              <a class="nav-link" href="#item-4">Australia and New Zealand and its people</a>
+                              <nav class="nav nav-pills flex-column">
+                                <a class="nav-link ml-3 my-1" href="#item-4-1">Australia</a>
+                                <a class="nav-link ml-3 my-1" href="#item-4-2">New Zealand</a>
                               </nav>
                             </nav>
                         </nav>  
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <div data-spy="scroll" data-target="#navbar-example3" data-offset="0" style="height: 90vh; overflow-y: scroll;">
-                            <h4 id="item-1">Item 1</h4>
+                            <h4 id="item-1">IELTS Exam</h4>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
+                                The International English Language Testing System (IELTS) measures the language proficiency of people who want to study or work where English is used as a language of communication. It uses a nine-band scale to clearly identify levels of proficiency, from non-user (band score 1) through to expert (band score 9).  
                             </p>
+                            <h5 id="item-1-1">IELTS Academic or IELTS General Training</h5>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
+                                IELTS is available in two test versions: Academic - for people applying for higher education or professional registration, and General Training for those migrating to Australia, Canada and the UK, or applying for secondary education, training programmes and work experience in an English-speaking environment. Both versions provide a valid and accurate assessment of the four language skills: listening, reading, writing and speaking.
                             </p>
+                            <h4 id="item-2">Gather needed documents for the requirements</h4>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
+                                <ul>
+                                    <li>Passport-at least 6 months old</li>    
+                                    <li>IELTS- overall 7 bands</li>    
+                                    <li>Tuition fee supporting Funds</li>    
+                                    <li>Living expenses funds</li>    
+                                    <li>12th grade certificate for undergraduate, and bachelor’s degree for postgraduate.</li>    
+                                    <li>University fees receipt, once the offer letter is accepted and fees has been submitted.</li>    
+                                </ul>
                             </p>
+                         
+                            <h4 id="item-2-1">Prepare financial requirements and financial supporting documents</h4>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
+                                <ul>
+                                    <li>Bank statement</li>
+                                    <li>Savings in the account</li>
+                                    <li>Any fixed deposit</li>
+                                    <li>Education loan</li>    
+                                    <li>Property papers (if have any)</li>
+                                </ul>
                             </p>
+                            <h5 id="item-2-2">Accept your offer of admission</h5>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
+                                Once you applied for the university, you will receive an offer letter from the university to fill out the details and submit it with the required files.
                             </p>
+                            <h5 id="item-2-3">Apply for the student visa</h5>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
+                                Once the offer letter is accepted by the university, you need to pay the university fees and get the fee receipt.    
                             </p>
+            
+                            <h4 id="item-3">Arrange accommodation</h4>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <h5 id="item-1-1">Item 1-1</h5>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <h5 id="item-1-2">Item 2-2</h5>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <h4 id="item-2">Item 2</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <h4 id="item-3">Item 3</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <h5 id="item-3-1">Item 3-1</h5>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <h5 id="item-3-2">Item 3-2</h5>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
-                            </p>
+                                We will provide you all the details of the accommodation of the university with the link, so that you can apply online.         </p>
+                            <h4 id="item-4">Find out as much as you can about Australia and New Zealand and its people</h4>
+                            <h5 id="item-4-1">Australia </h5>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
+                                    Australia is one of the most ethnically diverse societies in the world today.
                             </p>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod totam facilis enim. Odit necessitatibus quia dolore in consequatur molestias, doloribus dolorum nihil dolorem esse libero, ex nam fuga sunt rerum?
+                                    Almost one in four Australian residents were born outside of Australia and many more are first or second-generation Australians, the children and grandchildren of recently arrived migrants and refugees. This wide variety of backgrounds, together with the culture of Indigenous Australians who have lived on the Australian continent for more than 50,000 years, have helped create a uniquely Australian identity and spirit. Australia's population today is roughly 24 million people. The country's vast openness means it has the lowest population density in the world - only two people per square kilometre. The Australian Bureau of Statistics (ABS) produces population estimates for the Australian Government and people.
                             </p>
+                            <h5 id="item-4-2">New Zealand </h5>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci odio dolorum perspiciatis facilis dolores nam ipsam, culpa aliquam veritatis officiis tenetur odit sed eveniet inventore, enim nesciunt debitis nulla mollitia.
+                                    With a patchwork history of Māori, European, Pacific Island and Asian cultures, New Zealand has become a melting-pot population - but one with some uniting features that make it unique in the world. Today, of the 4.4 million New Zealanders (informally known as Kiwis), approximately 69% are of European descent, 14.6% are indigenous Māori, 9.2% Asian and 6.9% non-Māori Pacific Islanders. Geographically, over three-quarters of the population live in the North Island, with one-third of the total population living in Auckland. The other main cities of Wellington, Christchurch and Hamilton are where most of the remaining Kiwis dwell. 
                             </p>
                             </div>
                     </div>

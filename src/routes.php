@@ -48,11 +48,19 @@ $app->group('/', function () {
 
     $this->get('apply/{uni}', 'Src\Controller\SearchController:register')
         ->setName('apply');
+
+    $this->post('get-uni', 'Src\Controller\SearchController:getUni')
+        ->setName('getUni');
 });
 
 $app->group('/creators', function () {
     $this->get('/{creator}', 'Src\Controller\HomeController:creator')
         ->setName('creator');
+});
+
+$app->group('/careers', function () {
+    $this->get('/{careers}', 'Src\Controller\HomeController:careers')
+        ->setName('careers');
 });
 
 $app->group('/', function () {

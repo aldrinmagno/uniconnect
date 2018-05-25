@@ -1,88 +1,195 @@
-{% extends "/templates/home.html" %}
+{% extends "/templates/common.html" %}
 
 {% block title %} {{ title }} {% endblock %}
 
-{% block breadcrumbs %}
-{% include 'common/breadcrumbs.html' %}
-{% endblock %}
-
 {% block hero %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-                <h2>About UniConnect</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur sequi quod, quia id facere placeat, animi veniam, maiores et culpa dolores pariatur distinctio in hic delectus suscipit? Perspiciatis, minima illo?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ipsum et reiciendis eligendi dolores minima modi sint quasi commodi, similique dignissimos neque praesentium officia odio id atque harum dolor ipsam?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aperiam fuga commodi adipisci rem fugit possimus fugiat quas molestias aspernatur perspiciatis pariatur provident expedita rerum magnam laboriosam repellendus, nesciunt repudiandae.</p>
-        </div>
-    </div>
-</div>  
-{% endblock %}
-
-{% block section1 %}
-<div class="container">
-    <br>
-    <div class="row">
-        <div class="col-md-7">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" class="img-fluid" alt="Placeholder image">
-        </div>
-        <div class="col">
-            <h1 class="h5">
-               Why UniConnect
-            </h1>
-            <h2 class="h6">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse, ipsum est iusto dolorum magnam officia soluta odio inventore deleniti laboriosam dolores commodi eveniet laudantium tempore? Blanditiis eligendi velit corporis in.
-            </h2>
-            <ul>
-                <li>24 Hours Support</li>
-                <li>24 Hours Support</li>
-                <li>24 Hours Support</li>
-                <li>24 Hours Support</li>
-                <li>24 Hours Support</li>
-                <li>24 Hours Support</li>
-            </ul>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam minima similique, minus itaque impedit sit et natus velit aliquam. Ratione ea rem qui porro suscipit ipsam quisquam ducimus magni eaque.
-            </p>
-            <div class="row">
-                <div class="col">
-                    <button class="btn btn-block"><i class="fab fa-facebook-messenger"></i></button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-block"><i class="fab fa-weixin"></i></button>
+<div class="main-background">
+    <div class="container">
+        <br>
+        {% include 'common/breadcrumbs.html' %}
+        <div class="white-transparent">
+            <div class="row text-white">
+                <div class="col-md-12">
+                    <h2 class="text-warning"> <u>About UniConnect</u></h2>
+                    <p>
+                        International students make a major contribution to any first-class country (North America, Western Europe, Japan and Australia) around the world.All members of the creator of UniConnect are international students that have experienced directly difficulty from initial stage of the process from getting initial school and visa requirements, processing time spent and misleading information. 
+                    </p>
+                    <p>
+                        UniConnect will primarily supply the information about Australian and New Zealand universities that will influence them in choosing the course to study and inject information about the location prior flying overseas to study. UniConnect is being developed to offer sustainable support to international students by establishing their own network and addressing educational and cultural issues that arise when uni life commences. The application has embedded chatbot inspired by AI to have a real time interaction to users.  
+                    </p>
                 </div>
             </div>
         </div>
+    </div>  
+</div>
+{% endblock %}
+
+{% block section1 %}
+<div class="container-fluid">
+    <br><br><br>
+    <div class="row">
+        <div class="col-md-6">
+            <img data-src="/assets/uploads/images/j-8.jpg" class="img-fluid" alt="Placeholder image">
+        </div>
+        <div class="col">
+            <div class="top-uni-text text-center">
+                <h3 class="h3">
+                    Why <span class="text-warning">UniConnect</span>
+                </h3>
+                <h4 class="text-muted text-left">
+                  UniConnect  inspired by AI that will support aspiring international students eyeing to study in Australia or New Zealand.
+                </h4>
+            </div>
+            <div class="row">
+                <div class="card-columns">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                24/7 Active Chatbot Support
+                            </h4>
+                            <article class="mb-0 card-text">
+                                <p class="text-justify">
+                                    A chatbot is a software system, which can interact or “chat” with a human user in natural in universal English language. Chatbots can help inform users or help them in fulfilling tasks.
+                                </p>
+                                <p>
+                                    UniConnect has built-in chat...
+                                </p>
+                                <br>
+                                <a href="{{ path_for('services') }}" class="btn btn-block btn-warning">Read More</a>
+                            </article>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Comprehensive Australian and New Zealand List Universities
+                            </h4>
+                            <article class="mb-0 card-text">
+                                <p class="text-justify">
+                                    Compare universities around Australia and New Zealand with our interactive university search tool. Information available at this time is for the two countries mentioned... <br>
+                                </p>
+                                <br>
+                                <a href="{{ path_for('services') }}" class="btn btn-block btn-warning">Read More</a>
+                                <br>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                Connection Building Capabilities
+                            </h4>
+                            <article class="mb-0 card-text">
+                                <p class="text-justify">
+                                    UniConnect can form the virtual connection with other uni students who have chosen the same course in the same university. It establishes the connection to others, therefore engagement to others with the different cultural background is possible by using this website app...
+                                </p>
+                                <br>
+                                <a href="{{ path_for('services') }}" class="btn btn-block btn-warning">Read More</a>
+                            </article>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="row">
+                <a href="https://www.facebook.com/UniConnect-431878487273437/" target="_blank" class="btn btn-warning btn-lg btn-block"><i class="fab fa-facebook-messenger"></i></a>
+            </div>
+        </div>
     </div>
+    <br><br><br>
 </div>
 {% endblock %}
 
 {% block section2 %}
-<div class="container">
-    <div class="row">
+<div class="about-us-text">
+    <div class="container">
+      <div class="row">
         <div class="col">
-            <h3 class="title">UniConnect's vision for you</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur sequi quod, quia id facere placeat, animi veniam, maiores et culpa dolores pariatur distinctio in hic delectus suscipit? Perspiciatis, minima illo?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ipsum et reiciendis eligendi dolores minima modi sint quasi commodi, similique dignissimos neque praesentium officia odio id atque harum dolor ipsam?</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aperiam fuga commodi adipisci rem fugit possimus fugiat quas molestias aspernatur perspiciatis pariatur provident expedita rerum magnam laboriosam repellendus, nesciunt repudiandae.</p>
-        </div>
+          <div class="white-transparent">
+            <br><br>
+            <h3 class="h1"><span class="text-warning">UniConnect</span>'s vision for you</h3>
+            <p>
+                <span class="text-warning">UniConnect</span> vision is to support aspiring students to apply in Australia and New Zealand in finding suitable university for them.
+            </p>
+            <p>
+                Offers assistance to foreign students in addressing pre-arrival, educational, and cultural challenges.
+            </p>
+            <br><br><br><br>
+            <a href="{{ path_for('regularSearch') }}" class="btn btn-outline-light btn-block btn-lg">
+                <b>Apply at Your Dream University with <span class="text-warning">UniConnect</span></b>
+            </a>
+            <br>
+          </div>
+        </div>     
+      </div>
     </div>
-</div>
+  </div>
 {% endblock %}
 
 {% block section3 %}
 <div class="container">
-    <div class="card-group">
-        {% for creator in creators %}
+    <div class="top-uni-text">
+        <h3 class="h3">
+            Creator of <span class="text-warning">UniConnect</span>
+        </h3>
+        <h4 class="text-muted text-left">
+            est iusto dolorum magnam officia lores commodi.
+        </h4>
+    </div>
+    <div class="card-columns creators">
         <div class="card">
-            <img class="card-img-top" src="{{ creator.image }}" alt="Card image cap">
+            <div class="text-center">
+                <img class="card-img-top rounded-circle img-fluid" data-src="/assets/uploads/images/aldrin.jpg" alt="Aldrin Magno">
+            </div>
             <div class="card-body">
-                <h5 class="card-title"><a href="{{ path_for('creator', {creator: 'aldrin-magno'}) }}">{{ creator.name }}</a></h5>
-                <p class="card-text">{{ creator.description }}</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <h5 class="card-title"><a href="{{ path_for('creator', {creator: 'aldrin-magno'}) }}" class="text-warning">Aldrin Magno</a></h5>
+                <p class="card-text">
+                    I’m a highly motivated individual that focuses on improving myself in the field of Information Technology with a 3 years industry experience in web development and design.        
+                </p>
+                <br><br><br>
+                <a href="{{ path_for('creator', {creator: 'aldrin-magno'}) }}" class="btn btn-warning btn-block">Read more</a>
             </div>
         </div>
-        {% endfor %}
+        <div class="card">
+                <div class="text-center">
+       
+            <img class="card-img-top rounded-circle img-fluid" data-src="/assets/uploads/images/jasvir.jpg" alt="Jasvir Signh">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{ path_for('creator', {creator: 'jasvir-signh'}) }}" class="text-warning">Jasvir Signh</a></h5>
+                <p class="card-text">
+                    Hello everyone, myself Jasvir Singh or you can call me Johnny too. I am 23 years old and belong to small state of India known as Punjab.
+                </p><br><br><br><br>
+                <a href="{{ path_for('creator', {creator: 'jasvir-signh'}) }}" class="btn btn-warning btn-block">Read more</a>
+            </div>
+        </div>
+        <div class="card">
+                <div class="text-center">
+       
+            <img class="card-img-top rounded-circle img-fluid" data-src="/assets/uploads/images/vilma.jpg" alt="Vilma Sanchez">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{ path_for('creator', {creator: 'vilma-sanchez'}) }}" class="text-warning">Vilma Sanchez</a></h5>
+                <p class="card-text">
+                    I’m Currently enrolled as International Student  on my  Last semester  in Bachelor of Information Technology at Charles Darwin University.
+                </p><br><br><br><br>
+                <a href="{{ path_for('creator', {creator: 'vilma-sanchez'}) }}" class="btn btn-warning btn-block">Read more</a>
+            </div>
+        </div>
+        <div class="card">
+                <div class="text-center">
+       
+            <img class="card-img-top rounded-circle img-fluid" data-src="/assets/uploads/images/irene.jpg" alt="Irene Camacho">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{ path_for('creator', {creator: 'irene-camacho'}) }}" class="text-warning">Irene Camacho</a></h5>
+                <p class="card-text">
+                    I am on my last two semesters as BIT student of Charles Darwin University. Being an international student, motivates me and this team to structure and formulate this UniConnect project to assist future international student from.
+                </p>
+                <a href="{{ path_for('creator', {creator: 'irene-camacho'}) }}" class="btn btn-warning btn-block">Read more</a>
+            </div>
+        </div>
     </div>
+    <br><br>
 </div> 
 {% endblock %}

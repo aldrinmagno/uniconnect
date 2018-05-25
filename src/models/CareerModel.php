@@ -5,7 +5,7 @@ namespace Src\Model;
 use Aura\SqlQuery\QueryFactory;
 use Slim\Container;
 
-class RequirementsModel
+class CareerModel
 {
 	protected $table;
     protected $id;
@@ -22,8 +22,8 @@ class RequirementsModel
 	{
 		$this->pdo = $c->get('db');
 
-        $this->table = 'tblRequirements';
-        $this->id = 'fldRequirementId';
+        $this->table = 'tblCareers';
+        $this->id = 'fldCareerId';
 
 		$this->query_factory = new QueryFactory('mysql');
 	}
@@ -171,66 +171,5 @@ class RequirementsModel
         $sth = $this->select->getStatement();
 
         return $this->pdo->fetchOne($sth, $bind);
-    }
-
-    public function visa($id)
-    {
-        $this->select = $this->query_factory->newSelect();
-		$this->select
-			->cols($select)
-			->where($where)
-			->from($this->table);
-
-		$stm = $this->select->getStatement();
-
-		return $this->pdo->fetchAll($stm, $bind);
-    }
-
-    public function uni($id)
-    {
-        $this->select = $this->query_factory->newSelect();
-		$this->select
-			->cols(['*'])
-            ->where('fldRequirementType IN (:docs)')
-            ->where('tblUni_fldUniId = :id')
-			->from($this->table);
-
-        $stm = $this->select->getStatement();
-        
-        $bind = [
-            'docs' => [
-                'Step 1 Uni',
-                'Step 2 Uni',
-                'Step 2 Doc',
-                'Step 3 Uni',
-                'Step 4 Uni',
-                'Step 4 Doc',
-                'Step 5 Uni',
-                'Step 6 Uni',
-                'Step 6 Doc'
-            ],
-            'id' => $id
-        ];
-
-		return $this->pdo->fetchAll($stm, $bind);
-    }
-
-    public function visaReq()
-    {
-        $this->select = $this->query_factory->newSelect();
-		$this->select
-			->cols(['*'])
-            ->where('fldRequirementType IN (:docs)')
-          	->from($this->table);
-
-        $stm = $this->select->getStatement();
-        
-        $bind = [
-            'docs' => [
-                'Visa',
-            ]
-        ];
-
-		return $this->pdo->fetchAll($stm, $bind);
     }
 }

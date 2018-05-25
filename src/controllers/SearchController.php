@@ -35,6 +35,18 @@ final class SearchController extends BaseController
         return $response;
     }
 
+    public function getUni(Request $request, Response $response, $args)
+    {
+        $input = $request->getParsedBody();
+
+        $results = [
+            'uni' => $this->uni->getUniversities($input['id']),
+            'degree' => $this->degree->findAllByLimit(['*'], 'tblUni_fldUniId = :id', ['id' => $input['id']])
+        ];
+
+        return json_encode($results);
+    }
+
     public function university(Request $request, Response $response, $args)
     {
         $uni = $args['uni'];
@@ -66,7 +78,18 @@ final class SearchController extends BaseController
             ]],
             'uni' => $uni,
             'country' => $country,
-            'degrees' => $degree
+            'degrees' => $degree,
+            'testimonies' => $this->testimony->homePage([
+                'fldUniLogo AS image', 
+                'CONCAT(fldUserFName, " ", fldUserLName) AS title', 
+                'fldTestimony AS description',
+                'fldUniName',
+                'fldUniSlug',
+                'fldCountrySlug'
+            ], 'fldTestimonyDeleted = :del AND fldTestimoneyUniId = :uni', 
+            ['del' => 0, 'uni' => $uni['fldUniId']]),
+            'visaReq' => $this->requirement->visaReq(),
+            'uniReq' => $this->requirement->uni($uni['fldUniId'])
         ];
 
         $this->view->render($response, 'pages/directories/university.html', $data);

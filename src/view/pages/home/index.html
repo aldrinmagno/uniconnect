@@ -4,16 +4,22 @@
 
 {% block hero %}
   <div class="container">
+    <br>
     <div class="row">
-      <div class="col-md-4 text-right">
+      <div class="col-md-4 text-right" id="slogan">
         <h1>UniConnect</h1>
-        <br>
-        <h5>
-          Helping aspiring international <br>
-          students <br>
+          <span class="h4">
+            Helping aspiring international <br>
+          </span>
+          <span class="h4">
+            students <br>
+          </span>
+          <span class="h4">
           to get to the <strong>right university</strong> <br>
-          for them.
-        </h2>
+          </span>
+          <span class="h4">
+            for them.
+          </span>
       </div>
       <div class="col main-questioner">
         <h4>Lets get started by asking some few questions.</h4>
@@ -50,7 +56,7 @@
           </div>
           <div class="form-group row no-gutters">
             <div class="col-sm-12">
-              <button class="btn btn-block" type="button" id="btnSearch">Search!</button>
+              <button class="btn btn-warning btn-block" type="button" id="btnSearch"><b>Search!</b></button>
             </div>
           </div>
         </form>
@@ -60,43 +66,144 @@
 {% endblock %}
 
 {% block section1 %}
-  <div class="container top-universities">
-    <h3>Top universities around the world</h3>
+  <div class="container-fluid top-universities">
     <div class="row">
-      {% for uni in unis %}
-      <div class="col">
-        <div class="card">
-          {% if uni.logo %}
-          <img class="card-img-top" src="https://bulma.io/images/placeholders/1280x960.png" alt="{{ uni.name }}">
-          {% else %}
-          <img class="card-img-top" src="https://bulma.io/images/placeholders/1280x960.png" alt="{{ uni.name }}">
-          {% endif %}
-          <div class="card-body">
-            <h5 class="card-title"><a href="{{ path_for('university', {country:uni.country, uni:uni.slug}) }}">{{ uni.name }}</a></h5>
-            <p class="card-text">{{ uni.description|raw }}</p>
-           </div>
+      <div class="col-lg-8 col-md-12">
+        <div class="text-center top-uni-text">
+          <h3>Universities around Australia and New Zealand</h3>
+          <h4 class="muted">Top Universities</h4>
+        </div>
+        <div class="row">
+          {% for uni in unis %}
+          <div class="col-lg-4 col-md-6">
+            <div class="card top-uni-text">
+                {% if uni.logo %}
+                <img class="card-img-top" data-src="/assets/uploads/images/{{ uni.logo }}" alt="{{ uni.name }}">
+                {% else %}
+                <img class="card-img-top" data-src="https://bulma.io/images/placeholders/1280x960.png" alt="{{ uni.name }}">
+                {% endif %}
+                <br>
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="{{ path_for('university', {country:uni.country, uni:uni.slug}) }}">{{ uni.name }}</a>
+                  <br>
+                  <small>
+                    {{ uni.address|title }} <br>
+                    {{ uni.country|title }}
+                  </small>
+                </h5>
+                <br>
+                <p class="card-text">
+                  {{ uni.description|raw|slice(0,100) }}... 
+                  <a href="{{ path_for('university', {country:uni.country, uni:uni.slug}) }}" class="badge badge-warning">read more</a>
+                </p>
+                <br>
+                <p class="card-text">
+                  <small>
+                    <i class="fas fa-dollar-sign"></i> {{ uni.range }} Annually
+                  </small>
+                </p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
         </div>
       </div>
-      {% endfor %}
-    </div>
+      <div class="col side-article">
+        <br>
+        <div class="card">
+          <img class="card-img-top" data-src="/assets/uploads/images/j-10.jpg" alt="Uni Survival Guide">
+          <div class="card-body">
+            <h4 class="card-title"><a href="{{ path_for('faq') }}">Uni Survival Guide</a></h4>
+            <p class="card-text">
+                A university’s FAQ section sometimes doesn’t cut it when it comes to shedding light on seemingly trivial yet important questions that bug a student’s mind.
+            </p>
+          </div>
+        </div>
+        <br>
+        <a href="{{ path_for('faq') }}" class="btn btn-warning btn-block"><b>View More Articles</b></a>
+      </div>
+    </div>  
   </div>
+  <br><br>
+{% endblock %}
+
+{% block section5 %}
+  <div class="container-fluid top-universities">
+    <div class="row">
+      <div class="col side-article">
+        <div class="card">
+          <img class="card-img-top" data-src="/assets/uploads/images/j-3.jpg" alt="Uni Survival Guide">
+          <div class="card-body">
+            <h4 class="card-title"><a href="{{ path_for('faq') }}">Picking the right course for you</a></h4>
+            <p class="card-text">
+                A univers on seemingly trivial yet important questions that bug a student.
+            </p>
+          </div>
+        </div>
+        <br>
+        <a href="{{ path_for('faq') }}" class="btn btn-warning btn-block"><b>Read More</b></a>
+      </div>
+      <div class="col-lg-8 col-md-12">
+        <div class="text-center top-uni-text">
+          <h3>Endless Career Path to Choose</h3>
+          <h4 class="muted">Popular Degree</h4>
+          <br>
+        </div>
+        <div class="row">
+          {% for uni in careers %}
+          <div class="col-lg-4 col-md-6">
+            <div class="card top-uni-text">
+                {% if uni.fldCareerImage %}
+                <img class="card-img-top" data-src="/assets/uploads/images/{{ uni.fldCareerImage }}" alt="{{ uni.fldCareerName }}">
+                {% else %}
+                <img class="card-img-top" data-src="https://bulma.io/images/placeholders/1280x960.png" alt="{{ uni.fldCareerName }}">
+                {% endif %}
+                <br>
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="">{{ uni.fldCareerName }}</a>
+                  <br>
+                </h5>
+                <br>
+                <p class="card-text">
+                  {{ uni.fldCareerDescription|raw|slice(0,195) }}... 
+                  <a href="{{ path_for('careers', {careers:uni.fldCareerSlug}) }}" class="badge badge-warning">read more</a>
+                </p>
+                <br>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>  
+  </div>
+  <br><br>
+  <hr>
 {% endblock %}
 
 {% block section2 %}
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div id="maps" style="position: relative; width: 100%; height: 100%;"></div>
+  <div class="international-students-text">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="white-transparent">
+            <br><br>
+            <h3 class="h1">Explore what Australia and New Zealand<br> can offer Internation Students</h3> <br>
+            <p>
+                Two of the world’s most popular study destinations, Australia and New Zealand have always appealed to international students. Indeed, who could turn down the sun and sand of Australia, or the rugged natural beauty (and penguins!) of New Zealand?
+                But of course these natural attractions wouldn’t be worth much if they weren't combined with excellent universities – assets in which both countries are also wealthy.
+            </p>
+            <p>
+                If you want  to study in Australia or New Zealand, click on the button below to access our dedicated country guides, including details about top universities in Australia and New Zealand, popular student cities, and practical information about costs, applications and visa requirements.
+            </p>
+            <br><br>
+            <a href="{{ path_for('regularSearch') }}" class="btn btn-outline-light btn-block btn-lg"><b>Search Universities</b></a>
+            <br>
+          </div>
+        </div>     
       </div>
-      <div class="col-md-5">
-        <h3 class="title">International students around the world</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque exercitationem necessitatibus cumque consequatur illo molestias ex sint, maiores reiciendis distinctio incidunt tenetur nemo ut, molestiae soluta eligendi eum ab enim.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut atque distinctio cum nulla excepturi voluptate pariatur unde sint totam, tempora placeat molestiae ullam quam delectus ratione! Maxime quia modi ipsum.
-        </p>
-      </div>     
     </div>
   </div>
 {% endblock %}
@@ -104,26 +211,37 @@
 {% block section3 %}
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center">
-      <h3 class="display-6">A growing community around the world</h3>
-      <h5>See what other international student say about us</h5>
+    <div class="col-md-12 text-center top-uni-text">
+      <h3>Student Testimonies</h3>
+      <h4>How we helped international students</h4>
+      <br>
     </div>
   </div>
   <div class="row">
-    <div class="card-columns">
-      {% for testimony in testimonies %}
-      <div class="card">
-        {% if testimony.image %}
-        <img class="card-img-top" src="{{ testimony.image }}" alt="Card image cap">
-        {% endif %}
-        {% if testimony.title %}
-        <div class="card-body">
-          <h5 class="card-title">{{ testimony.title }} <small>@unistudent 30min ageo</small></h5>
-          <p class="card-text">{{ testimony.description|raw }}</p>
+    <div class="col">
+      <div class="card-columns">
+        {% for testimony in testimonies %}
+        <div class="card">
+          {% if testimony.image %}
+          <img class="card-img-top" data-src="/assets/uploads/images/{{ testimony.image }}" alt="{{ testimony.title }} ">
+          {% endif %}
+          {% if testimony.title %}
+          <div class="card-body">
+              <h4 class="card-title text-center">
+                  <br>
+                  {{ testimony.title }} <br> <a href="{{ path_for('university', {country:testimony.fldUniSlug, uni:testimony.fldCountrySlug}) }}">@{{ testimony.fldUniName }}</a>
+                <br>
+                <br>
+              </h4>
+              <blockquote class="blockquote">
+                <p class="mb-0 card-text">{{ testimony.description|raw }}</p>
+                <footer class="blockquote-footer">{{ testimony.title }}</footer>
+              </blockquote>
+          </div>
+          {% endif %}
         </div>
-        {% endif %}
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
   </div>
 </div>
@@ -132,41 +250,51 @@
 {% block section4 %}
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <h3 class="title">
-        Services offered
-      </h3>
-      <h6 class="subtitle">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse, ipsum est iusto dolorum magnam officia soluta odio inventore deleniti laboriosam dolores commodi eveniet laudantium tempore? Blanditiis eligendi velit corporis in.
-      </h6>
-      <ul>
-        <li>24 Hours Support</li>
-        <li>24 Hours Support</li>
-        <li>24 Hours Support</li>
-        <li>24 Hours Support</li>
-        <li>24 Hours Support</li>
-        <li>24 Hours Support</li>
-      </ul>
-
-      <div class="row">
-        <div class="col-md-12">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam minima similique, minus itaque impedit sit et natus velit aliquam. Ratione ea rem qui porro suscipit ipsam quisquam ducimus magni eaque.
-          <br><br>
-        </div>
-        <div class="col-md-12">
-          <h5>Ways in connecting with us.</h5>
-        </div>
-        <div class="col-md-6">
-          <button type="button" class="btn btn-dark btn-block"><i class="fab fa-facebook-messenger"></i></button>
-        </div>
-        <div class="col-md-6">
-          <button type="button" class="btn btn-dark btn-block"><i class="fab fa-weixin"></i></button>
-        </div>
+    <div class="col">
+      <div class="top-uni-text text-center">
+        <h3 class="title">
+          International Student Guide
+        </h3>
+        <h4>
+          Learn more about being an international student
+        </h4>
       </div>
-      
-    </div>
-    <div class="col-md-6">
-      <img src="https://bulma.io/images/placeholders/1280x960.png" class="img-fluid" alt="Placeholder image">
+      <div class="row">
+        <div class="col">
+          <div class="card-columns">
+            <div class="card">
+              <img class="card-img-top" data-src="/assets/uploads/images/j-9.jpg" alt="{{ testimony.title }} ">
+              
+              <div class="card-body">
+                <h4 class="card-title">
+                  Explore the Universities that Australia and New Zealand cab offer
+                </h4> <br>
+                <a href="{{ path_for('regularSearch') }}" class="btn btn-outline-warning btn-block"><b>Explore</b></a>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" data-src="/assets/uploads/images/j123.jpg" alt="{{ testimony.title }} ">
+              
+              <div class="card-body">
+                <h4 class="card-title">
+                  Here at UniConnect we support our students as much as we can.
+                </h4> <br>
+                <a href="{{ path_for('services') }}" class="btn btn-outline-warning btn-block"><b>Read More</b></a>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" data-src="/assets/uploads/images/j-2.jpg" alt="{{ testimony.title }} ">
+              
+              <div class="card-body">
+                <h4 class="card-title">
+                  Knowledge is power! Survive University by know this facts!
+                </h4> <br>
+                <a href="{{ path_for('faq') }}" class="btn btn-outline-warning btn-block"><b>Read More</b></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>   
     </div>
   </div>
 </div>

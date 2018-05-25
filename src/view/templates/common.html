@@ -6,17 +6,14 @@
         <title>{% block title %}{% endblock %} - UniConnect</title>
         {% include 'common/css.html' %}
     </head>
-    <body>
+    <body data-spy="scroll">
         <section>
             <header>
                 {% include 'pages/home/header.html' %}
             </header>
         </section>
         
-        <section class="hero-section">
-                <div class="container">
-                        {% block breadcrumbs %}{% endblock %}
-                    </div>
+        <section>
             {% block hero %}{% endblock %}
         </section>
         <section>
@@ -30,9 +27,6 @@
         </section>
         <section class="testimonies">
             {% block section3 %}{% endblock %}
-        </section>
-        <section class="services">
-            {% block section4 %}{% endblock %}
         </section>
         <section>
             {% include 'common/footer.html' %}

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}{% endblock %} - UniConnect</title>
         {% include 'common/css.html' %}
     </head>
-    <body>
+    <body data-spy="scroll">
         <section>
             <header>
                 {% include 'pages/home/header.html' %}
@@ -23,7 +23,6 @@
         <section>
             {% include 'common/footer.html' %}
         </section>
-        {% include 'pages/home/mapjs.html' %}
         {% include 'common/js.html' %}
     </body>
 </html>

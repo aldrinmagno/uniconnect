@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,14 +10,13 @@
         <header>
             {% include 'pages/home/header.html' %}
         </header>
-        
         <section class="container-fluid">
             <br>
             <div class="row">           
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-4" id="advance-search">
                     {% include 'pages/directories/searchbar.html' %}
                 </div>
-                <div class="col-md-9">
+                <div class="col-lg-9 col-md-8">
                     {% block breadcrumbs %}{% endblock %}
                     {% block unilist %}{% endblock %}
                 </div>

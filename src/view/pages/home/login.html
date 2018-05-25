@@ -3,37 +3,50 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block jumbotron %}
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col">
+            <h2>
+                <a href="{{ path_for('home') }}">
+                    <img data-src="/assets/uploads/images/logo.png" alt="UniConnect" class="logo">
+                </a>
+            </h2>
+            <hr>     
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col"></div>
-        <div class="col-md-9">
-            <div class="login">
-                <div class="row no-gutters">
-                    <div class="col">
-                        <div class="jumbotron">
-                            <h2>
-                                <a href="{{ path_for('home') }}" class="btn btn-light"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a> 
-                                <a href="{{ path_for('home') }}">UniConnect</a>
-                            </h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo corporis doloribus voluptate fugit. Dicta labore officiis rem ipsa quidem! Rem reiciendis veniam corporis, quam explicabo maiores saepe accusamus amet. Corrupti.</p>
-                            <p>reiciendis veniam corporis, quam explicabo maiores saepe accusamus amet. Corrupti.</p>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Login</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content border" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <form class="container" id="login">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <br>
-                                                <label for="login-email">Email address</label>
-                                                <input type="email" class="form-control" id="login-email" name="login-email" aria-describedby="emailHelp" placeholder="Enter email" required>
+        <div class="col-md-5">
+            <br>
+            <button type="button" class="btn btn-block btn-primary" id="btnLoginWithFB">
+               <i class="fab fa-facebook-square"></i> Login with facebook
+            </button>
+            <br>  
+            <div class="row">
+                <div class="col">
+                    <hr>
+                </div>
+                <div class="col-md-1">
+                   <b>or</b>
+                </div>
+                <div class="col">
+                    <hr>
+                </div>
+            </div> 
+            <br>
+            <div class="row no-gutters">
+                <div class="col">
+                    <div class="tab-content border" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <form class="container" id="login">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <br>
+                                            <label for="login-email">Email address</label>
+                                            <input type="email" class="form-control" id="login-email" name="login-email" aria-describedby="emailHelp" placeholder="Enter email" required>
                                                 <div class="valid-feedback">Nice! You got this one!</div>
                                                 <div class="invalid-feedback">Email is needed.</div>
                                             </div>
@@ -43,15 +56,34 @@
                                                 <div class="valid-feedback">Will keep this password a secret.</div>
                                                 <div class="invalid-feedback">Password is needed.</div>
                                             </div>
-                                            <button type="button" class="btn" id="btnLogin">Login</button>
-                                            <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal">forgot password</a>
-                                            <hr>
-                                            <button type="button" class="btn btn-block" id="btnLoginWithFB"><i class="fab fa-facebook-square"></i> Login with facebook</button>
-                                            <br>
+                                            <div class="row">  
+                                                <div class="col">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input " id="customCheck1">
+                                                        <label class="custom-control-label" for="customCheck1">Remember me</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <button type="button" class="btn btn-warning btn-block" id="btnLogin"><b>Login</b></button>
+                                                </div>
+                                            </div>
+                                        <br><br>
+                                        <div class="row text-center">
+                                            <div class="col">
+                                                <a class="text-warning" href="javascript:void(0)" data-toggle="modal" data-target="#exampleModal">
+                                                    Forgot your username and password?
+                                                </a>
+                                                <br><br>
+                                                <hr>
+                                                <small>
+                                                    If you click "Log in with Facebook" and are not a UniConnect user, you will be registered and you agree to <a href="" class="text-warning">UniConnect's Terms & Conditions</a> and <a href="" class="text-warning">Privacy Policy</a>.
+                                                </small>
+                                            </div>
                                         </div>
+                                        <br>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -61,13 +93,13 @@
     </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Forgot password</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                <h5 class="modal-title" id="exampleModalLabel">Forgot password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <form class="container" id="forgot-form">
@@ -81,7 +113,7 @@
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="button" class="btn btn-primary" id="forgot-password">Submit</button>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
 {% endblock %}

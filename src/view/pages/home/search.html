@@ -3,54 +3,68 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block search %}
-<div class="container">
-  
-{% include 'common/breadcrumbs.html' %}
-    <div class="row">
+<div class="main-background">
+  <div class="container">
+    {% include 'common/breadcrumbs.html' %}
+    <div class="white-transparent">
+      <div class="row">
         <div class="col-md-12 text-center">
-            <h2 class="h1">UniConnect</h2>
-            <h1 class="h5">Helping aspiring international students <br> to get to the <strong>right university</strong> <br> for them.</h1>
-            <br>
+            <h2 class="h1 text-warning">UniConnect</h2>
+            <h1 class="h5 text-white">Helping aspiring international students <br> to get to the <strong class="text-warning">right university</strong> <br> for them.</h1>
+          <br>
         </div>
-    </div>
-    <form class="row needs-validation" novalidate>
+      </div>
+      <form class="row needs-validation" novalidate>
         <div class="col"></div>
-        <div class="col-md-8">
+          <div class="col-md-8 white-bg">
             <div class="form-group">
-                <label for="formGroupExampleInput">Location</label>
-                <select class="form-control" id="location"></select>
+              <label for="formGroupExampleInput text-warning">Location</label>
+              <select class="form-control" id="location"></select>
             </div>
-        </div>
+          </div>
         <div class="col"></div>
-    </form>
+      </form>
+    </div>
+  </div>
 </div>
 {% endblock %}
 
 {% block section3 %}
 <div class="container">
-  <div class="row">
-    <div class="col-md-12 "><br><br><br><br><br><br><br><br><br><br><hr></div>
-    <div class="col-md-12 text-center">
-      <h3 class="display-6">Testimonies from our students</h3>
-      <h5>See what other international student say about us</h5>
-    </div>
-  </div>
-  <div class="row">
-    <div class="card-columns">
-      {% for testimony in testimonies %}
-      <div class="card">
-        {% if testimony.image %}
-        <img class="card-img-top" src="{{ testimony.image }}" alt="Card image cap">
-        {% endif %}
-        {% if testimony.title %}
-        <div class="card-body">
-          <h5 class="card-title">{{ testimony.title }} <small>@unistudent 30min ageo</small></h5>
-          <p class="card-text">{{ testimony.description|raw }}</p>
-        </div>
-        {% endif %}
+    <div class="row">
+      <div class="col-md-12 text-center top-uni-text">
+        <h3>Student Testimonies</h3>
+        <h4>How we helped international students</h4>
+        <br>
       </div>
-      {% endfor %}
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="card-columns">
+          {% for testimony in testimonies %}
+          <div class="card">
+            {% if testimony.image %}
+            <img class="card-img-top" src="/assets/uploads/images/{{ testimony.image }}" alt="{{ testimony.title }} ">
+            {% endif %}
+            {% if testimony.title %}
+            
+            <div class="card-body">
+                <h4 class="card-title text-center">
+                    <br>
+                    {{ testimony.title }} <br> <a href="{{ path_for('university', {country:testimony.fldUniSlug, uni:testimony.fldCountrySlug}) }}">@{{ testimony.fldUniName }}</a>
+                  <br>
+                  <br>
+                </h4>
+                <blockquote class="blockquote">
+                  <p class="mb-0 card-text">{{ testimony.description|raw }}</p>
+                  <footer class="blockquote-footer">{{ testimony.title }}</footer>
+                </blockquote>
+            </div>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
   </div>
-</div>
 {% endblock %}
